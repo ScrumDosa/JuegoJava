@@ -24,6 +24,8 @@ public class Personaje{
 	
 	public static void main(String[] args) {
      	
+		mapClass.readFile();
+		
 		JFrame window = new JFrame();								// Creo un JFrame de prueba.
 		window.setBounds(100, 100, 600, 600);						// Damos unas propiedades b�sicas al JFrame.
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

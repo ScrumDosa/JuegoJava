@@ -1,24 +1,31 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.File;
 import java.util.Scanner;
 
 public class Mapa {
 
-	//En proceso//
-	
-	
-	
-	 int map[][] ={{1, 1, 1, 1, 1, 1},
-				  {1, 0, 0, 0, 0, 1},
-				  {1, 0, 0, 0, 0, 1},
-				  {1, 0, 0, 0, 0, 1},
-				  {1, 0, 0, 0, 0, 1},
-				  {1, 1, 1, 1, 1, 1}};
-	//int map[][] = new int[6][6];
+	int arraySize = 6;
+	int map[][];
 	int boxSize = 100;
 	
-	
-	//private Juego_PruebaSprite_Anim PjClass = new Juego_PruebaSprite_Anim();
+	public void readFile(){
+		 try {
+			 Scanner scan = new Scanner(System.in);
+			 scan = new Scanner(new File(".//src//mapArray.txt"));
+			 map = new int[arraySize][arraySize];
+			 while(scan.hasNext()){
+				 for(int i = 0; i < arraySize; i++){
+					 for(int o = 0; o < arraySize; o++){
+						 map[i][o] = scan.nextInt();
+					 }
+				 }
+			 }
+			 scan.close();
+		 }
+		 
+		 catch(Exception e){
+			 System.out.println("Esto es un error. ¡Como tu!");
+		 }
+	}
 	
 	public void insertPj(int x, int y, boolean colocar) {
 		if(colocar == true)
