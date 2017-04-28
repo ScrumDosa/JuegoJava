@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring accessors="true" comment="Delete 4 elements from project &apos;CosasDeCasa&apos;&#x0A;- Original project: &apos;CosasDeCasa&apos;&#x0A;- Original elements:&#x0A;     Juego_oldSprite.java&#x0A;     Juego_PruebaSprite_Anim.java&#x0A;     Juego_PruebaSprite_Bien_Comentado.java&#x0A;     Juego_PruebaSprite_Anim.java~" description="Delete elements" element1="src/Juego_PruebaSprite_Anim.java~" element2="/src&lt;{Juego_PruebaSprite_Bien_Comentado.java" element3="/src&lt;{Juego_PruebaSprite_Anim.java" element4="/src&lt;{Juego_oldSprite.java" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1493277742398" subPackages="false" version="1.0"/>
-</session>
