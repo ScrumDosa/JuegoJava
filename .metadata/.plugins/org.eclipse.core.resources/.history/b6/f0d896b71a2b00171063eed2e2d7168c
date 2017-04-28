@@ -1,0 +1,53 @@
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
+public class Mapa {
+
+	 int map[][] ={{1, 1, 1, 1, 1, 1},
+				  {1, 0, 0, 0, 0, 1},
+				  {1, 0, 0, 0, 0, 1},
+				  {1, 0, 0, 0, 0, 1},
+				  {1, 0, 0, 0, 0, 1},
+				  {1, 1, 1, 1, 1, 1}};
+	//int map[][] = new int[6][6];
+	int boxSize = 100;
+	
+	/*
+	public void readMapArray() throws FileNotFoundException{
+	    String file = ("//CosasDeCasa//mapArray.txt.txt");
+	    Scanner scan = new Scanner(new FileReader(file));
+	    // initialises the scanner to read the file file
+	    
+	    int i = 0;
+	    while(scan.hasNextLine()){
+	        map[i] = scan.nextLine().split("\t");
+	        i++;
+	    }
+	    //loops through the file and splits on a tab
+
+	    for (int row = 0; row < map.length; row++) {
+	        for (int col = 0; col < map[0].length; col++) {
+	        	System.out.print(entries[row][col] + " " );
+	        }
+	        if(map[row][0] != null){
+	            System.out.print("\n");
+	        }
+	    }
+	    //prints the contents of the array that are not "null"
+	}*/
+	
+	
+	//private Juego_PruebaSprite_Anim PjClass = new Juego_PruebaSprite_Anim();
+	
+	public void insertPj(int x, int y, boolean colocar) {
+		if(colocar == true)
+			map[x][y] = 1;
+		else 
+			map[x][y] = 0;
+	}
+
+	public int checkMap(int x, int y){
+		return map[x][y];
+	}
+}

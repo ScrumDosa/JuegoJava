@@ -8,14 +8,14 @@ import javax.swing.JLabel;
 public class Personaje{
 	
 	private static Mapa mapClass = new Mapa();
-	static int boxSize = 100;
+	static int boxSize = 40;
 	 
 	static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
 	static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
 	static boolean movLeft = false;							// y las inicializamos como false.
 	static boolean movUp = false;
 	static boolean movDown = false;
-	static String rutaRel = ".//Pj_Estados//";
+	static String rutaRel = ".//Pj_Estados_redimensionados//";
 	static String[][] walkDirection = 
 		{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
 		 {"Izquierda_Caminando1.png","Izquierda_Caminando2.png", "Izquierda_Iddle.png"},
@@ -27,10 +27,11 @@ public class Personaje{
 		mapClass.readFile();
 		
 		JFrame window = new JFrame();								// Creo un JFrame de prueba.
-		window.setBounds(100, 100, 600, 600);						// Damos unas propiedades b�sicas al JFrame.
+		window.setBounds(100, 100, 800, 800);						// Damos unas propiedades b�sicas al JFrame.
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
 		window.setVisible(true);
+
 		
 		ImageIcon Pj = new ImageIcon( rutaRel+"Frente_Iddle.png");
 		
@@ -39,7 +40,7 @@ public class Personaje{
 		mapClass.insertPj(pjx/boxSize, pjy/boxSize, true);
 
 		PJlabel.setIcon(Pj);								// A este JLaber le metemos un Icon, con la ruta de la imagen, 
-		PJlabel.setBounds(pjx, pjy, 100, 100);				// posteriormente, le daremos unas coordenadas y tama�o.
+		PJlabel.setBounds(pjx, pjy, boxSize, boxSize);				// posteriormente, le daremos unas coordenadas y tama�o.
 		window.getContentPane().add(PJlabel);				// Por �ltimo, a�adirmos el JLaber a nuestro JFrame.
 		
 		window.addKeyListener(new KeyListener() {			// A�adimos un KeyListener para detectar los eventos del telcado (pulsar teclas)
@@ -73,10 +74,10 @@ public class Personaje{
 		while(true){										// Durante el resto del programa, ejecutaremos un bucle infinito. 
 			
 			System.out.println();							// Sin esto, no funciona el bucle. Misa no entender el motivo. Hay que buscarlo.
-			pjx = Movimiento(movRight, 'x', 100, pjx, pjy, Pj);					// Comprobaremos mediante una funci�n si un movimiento se ha puesto a true... 
-			pjx = Movimiento(movLeft, 'x', -100, pjx, pjy, Pj);					// ... la funci�n ejecutar� el movimiento, y devolver� la posici�n actual ...
-			pjy = Movimiento(movUp, 'y', -100, pjy, pjx, Pj);					// ... del personaje.
-			pjy = Movimiento(movDown, 'y', 100, pjy, pjx, Pj);
+			pjx = Movimiento(movRight, 'x', boxSize, pjx, pjy, Pj);					// Comprobaremos mediante una funci�n si un movimiento se ha puesto a true... 
+			pjx = Movimiento(movLeft, 'x', -boxSize, pjx, pjy, Pj);					// ... la funci�n ejecutar� el movimiento, y devolver� la posici�n actual ...
+			pjy = Movimiento(movUp, 'y', -boxSize, pjy, pjx, Pj);					// ... del personaje.
+			pjy = Movimiento(movDown, 'y', boxSize, pjy, pjx, Pj);
 			movRight = false;												// Ponemos todos las variables de movimiento a false.
 			movLeft = false;
 			movUp = false;
@@ -121,17 +122,17 @@ public class Personaje{
 			mapClass.insertPj(newCoord/boxSize, CoordStatic/boxSize, true);
 			mapClass.insertPj(CoordCamb/boxSize, CoordStatic/boxSize, false);
 			if(recorrido > 0){													
-				if((newCoord - CoordCamb) > 50){
+				if((newCoord - CoordCamb) > boxSize/2){
 					img(rutaRel+walkDirection[0][0], Pj, CoordCamb, CoordStatic);
-				} else if((newCoord - CoordCamb) < 50 & (newCoord - CoordCamb) > 1){
+				} else if((newCoord - CoordCamb) < boxSize/2 & (newCoord - CoordCamb) > 1){
 					img(rutaRel+walkDirection[0][1], Pj, CoordCamb, CoordStatic);
 				} else{
 					img(rutaRel+walkDirection[0][2], Pj, CoordCamb, CoordStatic);
 				}
 			}else if (recorrido < 0){
-				if((CoordCamb - newCoord) > 50){
+				if((CoordCamb - newCoord) > boxSize/2){
 					img(rutaRel+walkDirection[1][0], Pj, CoordCamb, CoordStatic);
-				} else if((CoordCamb - newCoord) < 50 & (CoordCamb - newCoord) >1){
+				} else if((CoordCamb - newCoord) < boxSize/2 & (CoordCamb - newCoord) >1){
 					img(rutaRel+walkDirection[1][1], Pj, CoordCamb, CoordStatic);
 				} else{
 					img(rutaRel+walkDirection[1][2], Pj, CoordCamb, CoordStatic);
@@ -141,17 +142,17 @@ public class Personaje{
 			mapClass.insertPj(CoordStatic/boxSize, newCoord/boxSize, true);
 			mapClass.insertPj(CoordStatic/boxSize, CoordCamb/boxSize, false);
 			if(recorrido > 0){													
-				if((newCoord - CoordCamb) > 50){
+				if((newCoord - CoordCamb) > boxSize/2){
 					img(rutaRel+walkDirection[2][0], Pj, CoordStatic, CoordCamb);
-				} else if((newCoord - CoordCamb) < 50 & (newCoord - CoordCamb) >1){
+				} else if((newCoord - CoordCamb) < boxSize/2 & (newCoord - CoordCamb) >1){
 					img(rutaRel+walkDirection[2][1], Pj, CoordStatic, CoordCamb);
 				} else{
 					img(rutaRel+walkDirection[2][2], Pj, CoordStatic, CoordCamb);
 				}
 			}else if (recorrido < 0){
-				if((CoordCamb - newCoord) > 50){
+				if((CoordCamb - newCoord) > boxSize/2){
 					img(rutaRel+walkDirection[3][0], Pj, CoordStatic, CoordCamb);
-				} else if((CoordCamb - newCoord) < 50 & (CoordCamb - newCoord) > 1){
+				} else if((CoordCamb - newCoord) < boxSize/2 & (CoordCamb - newCoord) > 1){
 					img(rutaRel+walkDirection[3][1], Pj, CoordStatic, CoordCamb);
 				} else{
 					img(rutaRel+walkDirection[3][2], Pj, CoordStatic, CoordCamb);
@@ -162,7 +163,7 @@ public class Personaje{
 	public static void img(String imagen, ImageIcon Pj, int CoordCamb, int CoordStatic){
 		Pj = new ImageIcon(imagen);
 		PJlabel.setIcon(Pj);
-		PJlabel.setBounds(CoordCamb, CoordStatic, 100, 100);
+		PJlabel.setBounds(CoordCamb, CoordStatic, boxSize, boxSize);
 	}
 }
 

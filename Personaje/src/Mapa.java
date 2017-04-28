@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Mapa {
 
-	int arraySize = 6;
+	int arraySize = 20;
 	int map[][];
-	int boxSize = 100;
+	int boxSize = 40;
 	
 	public void readFile(){
 		 try {
