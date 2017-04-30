@@ -185,8 +185,8 @@ public class FrameJuego extends javax.swing.JFrame {
         jLabelLayout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
         getContentPane().add(jLabelLayout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 890, 800, 110));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maxresdefault_1.jpg"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(600, 800));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/background.jpg"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(800, 800));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 890));
 
         pack();
