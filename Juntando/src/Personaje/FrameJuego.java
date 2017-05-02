@@ -52,8 +52,9 @@ public class FrameJuego extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jLabelLayout = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabelLayout = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 1000));
@@ -183,12 +184,14 @@ public class FrameJuego extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 910, 30, 30));
 
-        jLabelLayout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
-        getContentPane().add(jLabelLayout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 890, 800, 110));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoTransparente.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(600, 800));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 890));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 800));
+
+        jLabelLayout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
+        getContentPane().add(jLabelLayout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 880, 800, 120));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -268,6 +271,7 @@ public class FrameJuego extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelIcon1;
     private javax.swing.JLabel jLabelIcon2;
     private javax.swing.JLabel jLabelIcon3;

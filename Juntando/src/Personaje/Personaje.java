@@ -51,10 +51,12 @@ public class Personaje{
 		window.add(PJlabel);                                                    // Por �ltimo, a�adirmos el JLaber a nuestro JFrame.
 
                 //Esto es temporal
+                
                 ImageIcon background = new ImageIcon(".\\src\\Imagenes\\background.jpg");
                 BGlabel.setIcon(background);
                 BGlabel.setBounds(0, 0, 800, 800);
                 window.add(BGlabel);
+                
                 //Aqui acaba lo temporal
                 
                 
