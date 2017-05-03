@@ -9,8 +9,6 @@ public class Main {
 	public static void main(String[] args) {
                 frameClass.runInterface();
             	pjClass.createPj();
-                
-
 	}
 
 }

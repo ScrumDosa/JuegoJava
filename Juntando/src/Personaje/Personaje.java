@@ -2,10 +2,10 @@ package Personaje;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Personaje{
 	
@@ -14,7 +14,7 @@ public class Personaje{
 	static int boxSize = 40;
 	 
 	static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
-	static JLabel BGlabel = new JLabel("");
+	static JLabel BGlabel = new JLabel();
         static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
 	static boolean movLeft = false;							// y las inicializamos como false.
 	static boolean movUp = false;
@@ -48,16 +48,20 @@ public class Personaje{
 
 		PJlabel.setIcon(Pj);                                                    // A este JLabel le metemos un Icon, con la ruta de la imagen, 
 		PJlabel.setBounds(pjx, pjy, boxSize, boxSize);          			// posteriormente, le daremos unas coordenadas y tama�o.
-		window.add(PJlabel);                                                    // Por �ltimo, a�adirmos el JLaber a nuestro JFrame.
+		window.add(PJlabel);  
+ // Por �ltimo, a�adirmos el JLaber a nuestro JFrame.
+            
+            //Esto es temporal
+            ImageIcon background = new ImageIcon(".//src//Imagenes//background.jpg");
+            window.add(BGlabel);
+            BGlabel.setIcon(background);
+            BGlabel.setBounds(0, 0, 800, 800);
+            BGlabel.setEnabled(true);
+            BGlabel.setVisible(true);
 
-                //Esto es temporal
-                
-                ImageIcon background = new ImageIcon(".\\src\\Imagenes\\background.jpg");
-                BGlabel.setIcon(background);
-                BGlabel.setBounds(0, 0, 800, 800);
-                window.add(BGlabel);
-                
-                //Aqui acaba lo temporal
+            window.setAlwaysOnTop(true);
+             
+            //Aqui acaba lo temporal
                 
                 
 		window.addKeyListener(new KeyListener() {			// A�adimos un KeyListener para detectar los eventos del telcado (pulsar teclas)

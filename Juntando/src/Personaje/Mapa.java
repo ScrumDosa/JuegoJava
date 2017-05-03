@@ -25,7 +25,7 @@ public class Mapa {
 		 }
 		 
 		 catch(Exception e){
-			 System.out.println("Esto es un error. ¡Como tu!");
+			 System.out.println("Esto es un error.");
 		 }
 	}
 	
