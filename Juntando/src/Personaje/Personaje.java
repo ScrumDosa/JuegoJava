@@ -36,6 +36,7 @@ public class Personaje{
 		window.getContentPane().setLayout(null);
                 window.setUndecorated(true);
 		window.setVisible(true);
+                window.setAlwaysOnTop(true);
 
 		
 		ImageIcon Pj = new ImageIcon( rutaRel+"Frente_Iddle.png");
@@ -49,19 +50,19 @@ public class Personaje{
 		PJlabel.setIcon(Pj);                                                    // A este JLabel le metemos un Icon, con la ruta de la imagen, 
 		PJlabel.setBounds(pjx, pjy, boxSize, boxSize);          			// posteriormente, le daremos unas coordenadas y tama�o.
 		window.add(PJlabel);  
- // Por �ltimo, a�adirmos el JLaber a nuestro JFrame.
+ 
             
-            //Esto es temporal
-            ImageIcon background = new ImageIcon(".//src//Imagenes//background.jpg");
-            window.add(BGlabel);
-            BGlabel.setIcon(background);
-            BGlabel.setBounds(0, 0, 800, 800);
-            BGlabel.setEnabled(true);
-            BGlabel.setVisible(true);
 
-            window.setAlwaysOnTop(true);
+                ImageIcon background = new ImageIcon(".//src//Imagenes//background.jpg");
+                window.add(BGlabel);
+                BGlabel.setIcon(background);
+                BGlabel.setBounds(0, 0, 800, 800);
+                BGlabel.setEnabled(true);
+                BGlabel.setVisible(true);
+
+
              
-            //Aqui acaba lo temporal
+
                 
                 
 		window.addKeyListener(new KeyListener() {			// A�adimos un KeyListener para detectar los eventos del telcado (pulsar teclas)
@@ -193,7 +194,3 @@ public class Personaje{
 
 
 	
-
-
-
-            

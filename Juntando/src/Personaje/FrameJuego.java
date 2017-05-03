@@ -6,15 +6,16 @@
 package Personaje;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 
 public class FrameJuego extends javax.swing.JFrame {
 
-    private int item1 = 0;
-    private int item2 = 0;
-    private int item3 = 0;
-    private int item4 = 0;
-    private int anillo = 0;
+    private int item1 = 3;
+    private int item2 = 3;
+    private int item3 = 3;
+    private int item4 = 3;
+    private int anillo = 1;
     
     public FrameJuego() {
         initComponents();
@@ -25,13 +26,7 @@ public class FrameJuego extends javax.swing.JFrame {
         this.jTextField3.setText(String.valueOf(item3));
         this.jTextField4.setText(String.valueOf(item4));
         this.jTextField5.setText(String.valueOf(anillo));
-
     }
-    
-    public void actualizaItems(){
-      
-    }
-    
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -88,7 +83,7 @@ public class FrameJuego extends javax.swing.JFrame {
         });
         jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                UseItem1(evt);
+                useItem1(evt);
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 950, 50, -1));
@@ -101,6 +96,11 @@ public class FrameJuego extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jButton2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                useItem2(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 950, 50, -1));
 
         jButton3.setText("3");
@@ -109,6 +109,11 @@ public class FrameJuego extends javax.swing.JFrame {
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+        jButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                useItem3(evt);
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 950, 50, -1));
@@ -121,6 +126,11 @@ public class FrameJuego extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        jButton4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                useItem4(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 950, 50, -1));
 
         jButton5.setText("5");
@@ -131,6 +141,11 @@ public class FrameJuego extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        jButton5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                useRing(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 950, 50, -1));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -138,107 +153,112 @@ public class FrameJuego extends javax.swing.JFrame {
         jButton6.setToolTipText("");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                cerrar(evt);
             }
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 90, -1));
 
+        jTextField1.setEditable(false);
         jTextField1.setText("  V1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 910, 30, 30));
 
         jTextField2.setText("  V2");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 910, 30, 30));
 
         jTextField3.setText("  V3");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 910, 30, 30));
 
         jTextField4.setText("  V4");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 910, 30, 30));
 
         jTextField5.setText("  V5");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 910, 30, 30));
 
         jLabelLayout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
         getContentPane().add(jLabelLayout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 880, 800, 120));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_alto.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+         if(item4 > 0){
+            --item4;
+            this.jTextField4.setText(String.valueOf(item4));
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if(item1 > 0){
+            --item1;
+            this.jTextField1.setText(String.valueOf(item1));
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        if(item2 > 0){
+            --item2;
+            this.jTextField2.setText(String.valueOf(item2));
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+         if(item3 > 0){
+            --item3;
+            this.jTextField3.setText(String.valueOf(item3));
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void UseItem1(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UseItem1
-        
-    }//GEN-LAST:event_UseItem1
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    private void useItem1(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_useItem1
+        int keycode = evt.getKeyCode();
+            if(KeyEvent.VK_1 == keycode && item1 > 0){
+                --item1;
+                this.jTextField1.setText(String.valueOf(item1));
+            }
+    }//GEN-LAST:event_useItem1
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+       if(anillo > 1){
+           // usara las propiedades del anillo que aun no estan definidas
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void cerrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrar
         System.exit(0);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_cerrar
+
+    private void useItem2(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_useItem2
+        int keycode = evt.getKeyCode();
+            if(KeyEvent.VK_2 == keycode && item2 > 0){
+                --item2;
+                this.jTextField2.setText(String.valueOf(item2));
+            }
+    }//GEN-LAST:event_useItem2
+
+    private void useItem3(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_useItem3
+        int keycode = evt.getKeyCode();
+            if(KeyEvent.VK_3 == keycode && item3 > 0){
+                --item3;
+                this.jTextField3.setText(String.valueOf(item3));
+            }
+    }//GEN-LAST:event_useItem3
+
+    private void useItem4(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_useItem4
+        int keycode = evt.getKeyCode();
+            if(KeyEvent.VK_4 == keycode && item4 > 0){
+                --item4;
+                this.jTextField4.setText(String.valueOf(item4));
+            }
+    }//GEN-LAST:event_useItem4
+
+    private void useRing(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_useRing
+        int keycode = evt.getKeyCode();
+            if(KeyEvent.VK_5 == keycode && anillo == 1){
+            //hara cosas que definiremos
+        }
+    }//GEN-LAST:event_useRing
 
     
     public void colocar(JLabel label){
