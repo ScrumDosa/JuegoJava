@@ -31,7 +31,7 @@ public class Personaje{
 		mapClass.readFile();
 		
                 JFrame window = new JFrame();                                                   // Creo un JFrame de prueba.
-		window.setBounds(560, 100, 800, 800);						// Damos unas propiedades b�sicas al JFrame.
+		window.setBounds(560, 100, 800, 805);						// Damos unas propiedades b�sicas al JFrame.
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setLayout(null);
                 window.setUndecorated(true);
@@ -50,7 +50,7 @@ public class Personaje{
 		PJlabel.setIcon(Pj);                                                    // A este JLabel le metemos un Icon, con la ruta de la imagen, 
 		PJlabel.setBounds(pjx, pjy, boxSize, boxSize);          			// posteriormente, le daremos unas coordenadas y tama�o.
 		window.add(PJlabel);  
- 
+                window.setLocationRelativeTo(null);
             
 
                 ImageIcon background = new ImageIcon(".//src//Imagenes//background.jpg");

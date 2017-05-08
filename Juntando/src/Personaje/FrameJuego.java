@@ -56,22 +56,22 @@ public class FrameJuego extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/apple.png"))); // NOI18N
-        getContentPane().add(jLabelIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 900, 30, 40));
+        getContentPane().add(jLabelIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 900, 30, 40));
 
         jLabelIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/chicken.png"))); // NOI18N
-        getContentPane().add(jLabelIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 900, 30, 40));
+        getContentPane().add(jLabelIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 900, 30, 40));
 
         jLabelIcon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/heart.png"))); // NOI18N
         jLabelIcon3.setText("algo");
-        getContentPane().add(jLabelIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 900, 30, 40));
+        getContentPane().add(jLabelIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 900, 30, 40));
 
         jLabelIcon4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fish.png"))); // NOI18N
         jLabelIcon4.setText("algo");
-        getContentPane().add(jLabelIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 900, 30, 40));
+        getContentPane().add(jLabelIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, 30, 40));
 
         jLabelIcon5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ring.jpeg"))); // NOI18N
         jLabelIcon5.setText("algo");
-        getContentPane().add(jLabelIcon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 900, 30, 40));
+        getContentPane().add(jLabelIcon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 900, 30, 40));
 
         jButton1.setText("1");
         jButton1.setPreferredSize(new java.awt.Dimension(32, 32));
@@ -86,7 +86,7 @@ public class FrameJuego extends javax.swing.JFrame {
                 useItem1(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 950, 50, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 952, 50, 30));
 
         jButton2.setText("2");
         jButton2.setPreferredSize(new java.awt.Dimension(32, 32));
@@ -101,7 +101,7 @@ public class FrameJuego extends javax.swing.JFrame {
                 useItem2(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 950, 50, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 952, 60, 30));
 
         jButton3.setText("3");
         jButton3.setPreferredSize(new java.awt.Dimension(32, 32));
@@ -116,7 +116,7 @@ public class FrameJuego extends javax.swing.JFrame {
                 useItem3(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 950, 50, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 952, 60, 30));
 
         jButton4.setText("4");
         jButton4.setPreferredSize(new java.awt.Dimension(32, 32));
@@ -131,7 +131,7 @@ public class FrameJuego extends javax.swing.JFrame {
                 useItem4(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 950, 50, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 952, 60, 30));
 
         jButton5.setText("5");
         jButton5.setPreferredSize(new java.awt.Dimension(32, 32));
@@ -146,7 +146,7 @@ public class FrameJuego extends javax.swing.JFrame {
                 useRing(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 950, 50, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 950, 60, 30));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton6.setText("   Salir  ");
@@ -156,25 +156,25 @@ public class FrameJuego extends javax.swing.JFrame {
                 cerrar(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 90, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 120, -1));
 
         jTextField1.setEditable(false);
         jTextField1.setText("  V1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 910, 30, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 910, 30, 30));
 
         jTextField2.setText("  V2");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 910, 30, 30));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 910, 30, 30));
 
         jTextField3.setText("  V3");
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 910, 30, 30));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 910, 30, 30));
 
         jTextField4.setText("  V4");
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 910, 30, 30));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 910, 30, 30));
 
         jTextField5.setText("  V5");
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 910, 30, 30));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 910, 30, 30));
 
-        jLabelLayout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Yre1o.jpg"))); // NOI18N
+        jLabelLayout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_bajo.jpg"))); // NOI18N
         getContentPane().add(jLabelLayout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 880, 800, 120));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo_alto.jpg"))); // NOI18N
