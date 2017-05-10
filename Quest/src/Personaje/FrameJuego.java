@@ -59,19 +59,19 @@ public class FrameJuego extends javax.swing.JFrame {
         getContentPane().add(jLabelIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 900, 30, 40));
 
         jLabelIcon2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/chicken.png"))); // NOI18N
-        getContentPane().add(jLabelIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 900, 30, 40));
+        getContentPane().add(jLabelIcon2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 910, 30, 40));
 
         jLabelIcon3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/heart.png"))); // NOI18N
         jLabelIcon3.setText("algo");
-        getContentPane().add(jLabelIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 900, 30, 40));
+        getContentPane().add(jLabelIcon3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 910, 30, 40));
 
         jLabelIcon4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fish.png"))); // NOI18N
         jLabelIcon4.setText("algo");
-        getContentPane().add(jLabelIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 900, 30, 40));
+        getContentPane().add(jLabelIcon4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 910, 30, 40));
 
         jLabelIcon5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ring.jpeg"))); // NOI18N
         jLabelIcon5.setText("algo");
-        getContentPane().add(jLabelIcon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 900, 30, 40));
+        getContentPane().add(jLabelIcon5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 910, 30, 40));
 
         jButton1.setText("1");
         jButton1.setPreferredSize(new java.awt.Dimension(32, 32));
