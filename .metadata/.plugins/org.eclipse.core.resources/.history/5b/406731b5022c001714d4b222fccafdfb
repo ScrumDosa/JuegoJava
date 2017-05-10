@@ -15,7 +15,7 @@ public class Personaje{
 	static boolean movLeft = false;							// y las inicializamos como false.
 	static boolean movUp = false;
 	static boolean movDown = false;
-	static String rutaRel = ".//Pj_Estados_redimensionados//";
+	static String rutaRel = "Personaje//Pj_Estados_redimensionados//";
 	static String[][] walkDirection = 
 		{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
 		 {"Izquierda_Caminando1.png","Izquierda_Caminando2.png", "Izquierda_Iddle.png"},

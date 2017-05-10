@@ -48,7 +48,7 @@ public class Personaje{
 			@Override
 			public void keyPressed(KeyEvent e) {			// Cuando se pulsa una tecla...
 				switch (e.getKeyCode()) {
-			    	case KeyEvent.VK_D:						// ...Y esa tecla es la  D,
+			    	case KeyEvent.VK_D | KeyEvent.VK_RIGHT:						// ...Y esa tecla es la  D,
 			    		movRight = true;					// ponemos a true el movimiento hacia la derecha.
 			    	break;
 			    	case KeyEvent.VK_A:						// ... Y esa tecla es la A,
