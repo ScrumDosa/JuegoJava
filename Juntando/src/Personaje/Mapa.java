@@ -8,6 +8,18 @@ public class Mapa {
 	int arraySize = 20;
 	int map[][];
 	int boxSize = 40;
+
+    public int getArraySize() {
+        return arraySize;
+    }
+
+    public int[][] getMap() {
+        return map;
+    }
+
+    public int getBoxSize() {
+        return boxSize;
+    }
 	
 	public void readFile(){
 		 try {
@@ -33,6 +45,13 @@ public class Mapa {
 		if(colocar == true)
 			map[x][y] = 1;
 		else 
+			map[x][y] = 0;
+	}
+
+        public void insertEnemy(int x, int y, boolean colocar) {
+		if(colocar == true)
+ 			map[x][y] = 1;
+                else 
 			map[x][y] = 0;
 	}
 

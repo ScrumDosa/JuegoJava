@@ -3,15 +3,18 @@ package Personaje;
 
 public class Main {
 
-	private static Personaje pjClass = new Personaje();
-        private static Enemigo enemyClass = new Enemigo();
-        private static FrameJuego frameClass = new FrameJuego();
+    private static Personaje pjClass;
+    private static FrameJuego frameClass;
 
+    public static void main(String[] args) {
         
-	public static void main(String[] args) {
-                frameClass.runInterface();
-            	pjClass.createPj();
-                enemyClass.CreateEnemy();
-	}
+        pjClass = new Personaje();
+        frameClass = new FrameJuego();
+        
+        
+        frameClass.runInterface();
+        pjClass.createPj();
+        //enemyClass.CreateEnemy();
+    }
 
 }
