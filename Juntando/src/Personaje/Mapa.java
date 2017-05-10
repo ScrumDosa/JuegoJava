@@ -17,7 +17,7 @@ public class Mapa {
 			 while(scan.hasNext()){
 				 for(int i = 0; i < arraySize; i++){
 					 for(int o = 0; o < arraySize; o++){
-						 map[i][o] = scan.nextInt();
+						 map[o][i] = scan.nextInt();
 					 }
 				 }
 			 }

@@ -11,6 +11,7 @@ public class Personaje{
 	
 	private static Mapa mapClass = new Mapa();
         private static FrameJuego frameClass = new FrameJuego();
+        private static Ventana_mapa windowMapClass = new Ventana_mapa();
 	static int boxSize = 40;
 	 
 	static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
@@ -29,22 +30,16 @@ public class Personaje{
 	public static void createPj() {
      	
 		mapClass.readFile();
-		
-                JFrame window = new JFrame();                                                   // Creo un JFrame de prueba.
-		window.setBounds(560, 100, 800, 805);						// Damos unas propiedades b�sicas al JFrame.
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.getContentPane().setLayout(null);
-                window.setUndecorated(true);
-		window.setVisible(true);
-                window.setAlwaysOnTop(true);
+                
+		windowMapClass.create_window();
+                JFrame window = windowMapClass.get_window();
 
-		
 		ImageIcon Pj = new ImageIcon( rutaRel+"Frente_Iddle.png");
 		
 
                 
-		int pjx = 40;										// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
-		int pjy = 40;
+		int pjx = boxSize;										// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
+		int pjy = boxSize;
 		mapClass.insertPj(pjx/boxSize, pjy/boxSize, true);
 
 		PJlabel.setIcon(Pj);                                                    // A este JLabel le metemos un Icon, con la ruta de la imagen, 
