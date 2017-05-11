@@ -13,9 +13,11 @@ public class Enemigo {
     private static Mapa mapClass;
     private static Ventana_mapa windowMapClass;
         
-    static JLabel enemyLabel;					// Creo un JLaber.
+    static JLabel enemyLabel;                                                   // Creo un JLaber.
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
-    static boolean movLeft = false;
+    static boolean movLeft = true;
+    private int enemyX;
+    private int enemyY;
     static String rutaRel = ".//src//Pj_Estados_redimensionados//";
     static String[][] walkDirection = 
 		{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
@@ -40,8 +42,8 @@ public class Enemigo {
         
         ImageIcon enemy = new ImageIcon( rutaRel+"Frente_Iddle.png");
         
-        int enemyX = boxSize * 15;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
-	int enemyY = boxSize * 8;
+        enemyX = boxSize * 18;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
+	enemyY = boxSize * 9;
         
 	mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, true);
 
@@ -49,4 +51,64 @@ public class Enemigo {
 	enemyLabel.setBounds(enemyX, enemyY, boxSize, boxSize);          	// posteriormente, le daremos unas coordenadas y tama�o.
 	window.add(enemyLabel);  
     }
+    
+    public void EnemyDirection(){
+        if(movLeft == true){
+            if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) == 1){
+                movLeft = false;
+                movRight = true;
+            } else
+                EnemyPatrol(-1);
+        } else if(movRight == true){
+            if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) == 1){
+                movRight = false;
+                movLeft = true;
+                EnemyDirection();
+            } else
+                EnemyPatrol(1);
+        }
+    }
+    
+    public void EnemyPatrol(int direccion) {
+        boolean movimiento = true;
+        int newCoord = enemyX + boxSize * direccion;
+        int contador = 0;
+        while (enemyX != newCoord) {
+            contador += 1;System.out.println(contador);
+            if (contador > 2500) {
+                if (direccion > 0) {
+                    if ((newCoord - enemyX) > boxSize / 2) {
+                        img(rutaRel + walkDirection[0][0], newCoord, enemyY);
+                    } else if ((newCoord - enemyX) < boxSize / 2 & (newCoord - enemyX) > 1) {
+                        img(rutaRel + walkDirection[0][1], newCoord, enemyY);
+                    } else {
+                        img(rutaRel + walkDirection[0][2], newCoord, enemyY);
+                        //movimiento = false;
+                    }
+                } else if (direccion < 0) {
+                    if ((enemyX - newCoord) > boxSize / 2) {
+                        img(rutaRel + walkDirection[1][0], newCoord, enemyY);
+                        System.out.println(enemyX);
+                    } else if ((enemyX - newCoord) < boxSize / 2 & (enemyX - newCoord) > 1) {
+                        img(rutaRel + walkDirection[1][1], newCoord, enemyY);
+                    } else {
+                        img(rutaRel + walkDirection[1][2], newCoord, enemyY);
+                        //movimiento = false;
+                    }
+                }
+                if (direccion > 0) {
+                    enemyX++;
+                } else {
+                    enemyX--;
+                }
+                contador = 0;
+            }
+        }
+    }
+    
+    public static void img(String imagen, int CoordCamb, int CoordStatic){
+	ImageIcon enemy = new ImageIcon(imagen);
+	enemyLabel.setIcon(enemy);
+	enemyLabel.setBounds(CoordCamb, CoordStatic, boxSize, boxSize);
+    }    
 }

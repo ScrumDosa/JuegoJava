@@ -99,7 +99,8 @@ public class Personaje{
 		movRight = false;												// Ponemos todos las variables de movimiento a false.
 		movLeft = false;
                 movUp = false;
-		movDown = false;	
+		movDown = false;
+                enemyClass.EnemyDirection();
 	}
     }	
 	
