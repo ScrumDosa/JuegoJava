@@ -136,49 +136,50 @@ public class Personaje{
 	return CoordCamb;																//8. Una vez acabado todo, devolvemos la posici�n actual del Pj.
     }
 	
-    public static void imprimirPersonaje(char eje, int recorrido, int CoordCamb, int CoordStatic, int newCoord, ImageIcon Pj){
-        if(eje == 'x'){
-		mapClass.insertPj(newCoord/boxSize, CoordStatic/boxSize, true);
-		mapClass.insertPj(CoordCamb/boxSize, CoordStatic/boxSize, false);
-		if(recorrido > 0){													
-			if((newCoord - CoordCamb) > boxSize/2){
-				img(rutaRel+walkDirection[0][0], Pj, CoordCamb, CoordStatic);
-			} else if((newCoord - CoordCamb) < boxSize/2 & (newCoord - CoordCamb) > 1){
-				img(rutaRel+walkDirection[0][1], Pj, CoordCamb, CoordStatic);
-			} else{
-				img(rutaRel+walkDirection[0][2], Pj, CoordCamb, CoordStatic);
-                        }
-		}else if (recorrido < 0){
-			if((CoordCamb - newCoord) > boxSize/2){
-				img(rutaRel+walkDirection[1][0], Pj, CoordCamb, CoordStatic);
-			} else if((CoordCamb - newCoord) < boxSize/2 & (CoordCamb - newCoord) >1){
-				img(rutaRel+walkDirection[1][1], Pj, CoordCamb, CoordStatic);
-			} else{
-				img(rutaRel+walkDirection[1][2], Pj, CoordCamb, CoordStatic);
-			}
-		}
-	} else if (eje == 'y'){
-		mapClass.insertPj(CoordStatic/boxSize, newCoord/boxSize, true);
-		mapClass.insertPj(CoordStatic/boxSize, CoordCamb/boxSize, false);
-		if(recorrido > 0){													
-			if((newCoord - CoordCamb) > boxSize/2){
-				img(rutaRel+walkDirection[2][0], Pj, CoordStatic, CoordCamb);
-			} else if((newCoord - CoordCamb) < boxSize/2 & (newCoord - CoordCamb) >1){
-				img(rutaRel+walkDirection[2][1], Pj, CoordStatic, CoordCamb);
-			} else{
-				img(rutaRel+walkDirection[2][2], Pj, CoordStatic, CoordCamb);
-			}
-		}else if (recorrido < 0){
-			if((CoordCamb - newCoord) > boxSize/2){
-				img(rutaRel+walkDirection[3][0], Pj, CoordStatic, CoordCamb);
-			} else if((CoordCamb - newCoord) < boxSize/2 & (CoordCamb - newCoord) > 1){
-				img(rutaRel+walkDirection[3][1], Pj, CoordStatic, CoordCamb);
-			} else{
-				img(rutaRel+walkDirection[3][2], Pj, CoordStatic, CoordCamb);
-			}
-		}
-	}
-        
+    public static void imprimirPersonaje(char eje, int recorrido, int CoordCamb, int CoordStatic, int newCoord, ImageIcon Pj) {
+        if (eje == 'x') {
+            mapClass.insertPj(CoordCamb / boxSize, CoordStatic / boxSize, false);
+            mapClass.insertPj(newCoord / boxSize, CoordStatic / boxSize, true);
+            if (recorrido > 0) {
+                if ((newCoord - CoordCamb) > boxSize / 2) {
+                    img(rutaRel + walkDirection[0][0], Pj, CoordCamb, CoordStatic);
+                } else if ((newCoord - CoordCamb) < boxSize / 2 & (newCoord - CoordCamb) > 1) {
+                    img(rutaRel + walkDirection[0][1], Pj, CoordCamb, CoordStatic);
+                } else {
+                    img(rutaRel + walkDirection[0][2], Pj, CoordCamb, CoordStatic);
+                }
+            } else if (recorrido < 0) {
+                if ((CoordCamb - newCoord) > boxSize / 2) {
+                    img(rutaRel + walkDirection[1][0], Pj, CoordCamb, CoordStatic);
+                } else if ((CoordCamb - newCoord) < boxSize / 2 & (CoordCamb - newCoord) > 1) {
+                    img(rutaRel + walkDirection[1][1], Pj, CoordCamb, CoordStatic);
+                } else {
+                    img(rutaRel + walkDirection[1][2], Pj, CoordCamb, CoordStatic);
+                }
+            }
+        } else if (eje == 'y') {
+            mapClass.insertPj(CoordStatic / boxSize, CoordCamb / boxSize, false);
+            mapClass.insertPj(CoordStatic / boxSize, newCoord / boxSize, true);
+
+            if (recorrido > 0) {
+                if ((newCoord - CoordCamb) > boxSize / 2) {
+                    img(rutaRel + walkDirection[2][0], Pj, CoordStatic, CoordCamb);
+                } else if ((newCoord - CoordCamb) < boxSize / 2 & (newCoord - CoordCamb) > 1) {
+                    img(rutaRel + walkDirection[2][1], Pj, CoordStatic, CoordCamb);
+                } else {
+                    img(rutaRel + walkDirection[2][2], Pj, CoordStatic, CoordCamb);
+                }
+            } else if (recorrido < 0) {
+                if ((CoordCamb - newCoord) > boxSize / 2) {
+                    img(rutaRel + walkDirection[3][0], Pj, CoordStatic, CoordCamb);
+                } else if ((CoordCamb - newCoord) < boxSize / 2 & (CoordCamb - newCoord) > 1) {
+                    img(rutaRel + walkDirection[3][1], Pj, CoordStatic, CoordCamb);
+                } else {
+                    img(rutaRel + walkDirection[3][2], Pj, CoordStatic, CoordCamb);
+                }
+            }
+        }
+
     }
     public static void img(String imagen, ImageIcon Pj, int CoordCamb, int CoordStatic){
 	Pj = new ImageIcon(imagen);

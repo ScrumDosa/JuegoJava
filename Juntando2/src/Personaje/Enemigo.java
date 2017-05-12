@@ -77,11 +77,11 @@ public class Enemigo {
             if (contador > 250000) {
                 if (direccion > 0) {
                     if ((newCoord - enemyX) > boxSize / 2) {
-                        img(rutaRel + walkDirection[0][0], enemyX, enemyY);                        System.out.println("1");
+                        img(rutaRel + walkDirection[0][0], enemyX, enemyY);                       
                     } else if ((newCoord - enemyX) < boxSize / 2 & (newCoord - enemyX) > 1) {
-                        img(rutaRel + walkDirection[0][1], enemyX, enemyY);                        System.out.println("2");
+                        img(rutaRel + walkDirection[0][1], enemyX, enemyY);                       
                     } else {
-                        img(rutaRel + walkDirection[0][2], enemyX, enemyY);                        System.out.println("3");
+                        img(rutaRel + walkDirection[0][2], enemyX, enemyY);                       
                     }
                 } else if (direccion < 0) {
                     if ((enemyX - newCoord) > boxSize / 2) {
