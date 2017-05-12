@@ -57,15 +57,23 @@ public class Enemigo {
             if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) == 1){
                 movLeft = false;
                 movRight = true;
-            } else
+            } else{
+                mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, false);
+                mapClass.insertEnemy(enemyX/boxSize-1, enemyY/boxSize, true);
                 EnemyPatrol(-1);
+                
+            }
         } else if(movRight == true){
             if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) == 1){
                 movRight = false;
                 movLeft = true;
                 EnemyDirection();
-            } else
+            } else{
+                mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, false);
+                mapClass.insertEnemy(enemyX/boxSize+1, enemyY/boxSize, true);
                 EnemyPatrol(1);
+                
+            }
         }
     }
     
