@@ -23,14 +23,26 @@ public class Enemigo {
 		{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
 		 {"Izquierda_Caminando1.png","Izquierda_Caminando2.png", "Izquierda_Iddle.png"},
 		 {"Frente_Caminando1.png", "", ""}};
+    
+    public int vida = 30; // hare getters y setters pero de momento publicas
+    public int daño = 10;
 
     public Enemigo() {
-    windowMapClass = new Ventana_mapa();
-    enemyLabel = new JLabel("");	   
+        windowMapClass = new Ventana_mapa();
+        enemyLabel = new JLabel("");
+        this.vida = vida;
+        this.daño = daño;
     }
 
     public void setMapClass(Mapa mapClass) {
         Enemigo.mapClass = mapClass;
+    }
+    
+    public int getVida(){
+        return this.vida;
+    }
+    public void setVida(int daño){
+        this.vida -= daño;
     }
     
     
@@ -56,7 +68,7 @@ public class Enemigo {
     
     public void EnemyDirection(){
         if(movLeft == true){
-            if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) == 1){
+            if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) >= 1){
                 movLeft = false;
                 movRight = true;
             } else{
@@ -66,7 +78,7 @@ public class Enemigo {
                 
             }
         } else if(movRight == true){
-            if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) == 1){
+            if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) >= 1){
                 movRight = false;
                 movLeft = true;
                 EnemyDirection();

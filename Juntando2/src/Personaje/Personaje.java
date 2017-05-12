@@ -14,6 +14,7 @@ public class Personaje{
     private static Ventana_mapa windowMapClass = new Ventana_mapa();
     private static Enemigo enemyClass = new Enemigo();
     
+    
     static int boxSize = 40;
 	 
     static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
@@ -22,6 +23,8 @@ public class Personaje{
     static boolean movLeft = false;							// y las inicializamos como false.
     static boolean movUp = false;
     static boolean movDown = false;
+    static boolean tryAttack = false;
+    static int lastDirection = 0; //1. Arriba // 2. Derecha // 3. Abajo // 4. Izquierda
     static String rutaRel = ".//src//Pj_Estados_redimensionados//";
     static String[][] walkDirection = 
 	{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
@@ -29,6 +32,9 @@ public class Personaje{
 	 {"Frente_Caminando1.png","Frente_Caminando2.png", "Frente_Iddle.png"},
 	 {"Trasero_Caminando1.png","Trasero_Caminando2.png","Trasero_Iddle.png"}};
 	
+    private int vida = 100;
+    public static int daño = 15;
+    
     public static void createPj() {
      	
 	mapClass.readFile();
@@ -68,16 +74,23 @@ public class Personaje{
 			switch (e.getKeyCode()) {
 		    	case KeyEvent.VK_D:						// ...Y esa tecla es la  D,
 		    		movRight = true;					// ponemos a true el movimiento hacia la derecha.
+                                lastDirection = 2;
 		    	break;
 		    	case KeyEvent.VK_A:						// ... Y esa tecla es la A,
 		    		movLeft = true;						// ponemos a true el movimiento hacia la izquierda.
+                                lastDirection = 4;
 		    	break;
 		    	case KeyEvent.VK_W:						// ... Y esa tecla es la W,
 		    		movUp = true;						// ponemos a true el movimiento hacia arriba.
+                                lastDirection = 1;
 		    	break;
 		    	case KeyEvent.VK_S:						// ... Y esa tecla es la S,
 		    		movDown = true;						// ponemos a true el movimiento hacia abajo.
+                                lastDirection = 3;
 		    	break;
+                         case KeyEvent.VK_E:
+                             tryAttack = true;
+                        break;
 			}
 		}
 			
@@ -92,7 +105,20 @@ public class Personaje{
 	while(true){										// Durante el resto del programa, ejecutaremos un bucle infinito. 
 		
 		System.out.println();							// Sin esto, no funciona el bucle. Misa no entender el motivo. Hay que buscarlo.
-		pjx = Movimiento(movRight, 'x', boxSize, pjx, pjy, Pj);					// Comprobaremos mediante una funci�n si un movimiento se ha puesto a true... 
+		
+                if (tryAttack == true) {
+                    if (lookForEnemy(lastDirection, pjx, pjy) == 3) {
+                        enemyClass.setVida(daño);
+                        if (enemyClass.getVida() <= 0) {
+                           enemyClass.enemyLabel.setVisible(false);
+                          enemyClass.enemyLabel.setEnabled(false);
+                        }
+                    }
+                    tryAttack = false;
+                }
+                
+                
+                pjx = Movimiento(movRight, 'x', boxSize, pjx, pjy, Pj);					// Comprobaremos mediante una funci�n si un movimiento se ha puesto a true... 
 		pjx = Movimiento(movLeft, 'x', -boxSize, pjx, pjy, Pj);					// ... la funci�n ejecutar� el movimiento, y devolver� la posici�n actual ...
 		pjy = Movimiento(movUp, 'y', -boxSize, pjy, pjx, Pj);					// ... del personaje.
 		pjy = Movimiento(movDown, 'y', boxSize, pjy, pjx, Pj);
@@ -186,6 +212,28 @@ public class Personaje{
 	PJlabel.setIcon(Pj);
 	PJlabel.setBounds(CoordCamb, CoordStatic, boxSize, boxSize);
     }    
+    
+    public int getVida(){
+        return this.vida; // esto es para saber si nuestra vida ha llegado a 0 si recibimos un ataque
+    }
+    
+    public void setVida(int daño){
+        this.vida -= daño; // para bajar la vida en caso de recibir un ataque del enemigo 
+    }
+    
+    public static int lookForEnemy(int direction, int x, int y){
+        if(direction == 1)
+            return mapClass.checkMap(x/boxSize, y/boxSize+1);
+        else if(direction == 2)
+            return mapClass.checkMap(x/boxSize+1, y/boxSize);
+        else if(direction == 3)
+            return mapClass.checkMap(x/boxSize, y/boxSize-1);
+        else if(direction == 4)
+            return mapClass.checkMap(x/boxSize-1, y/boxSize);
+        
+        return 0;
+    }
+    
 }
 
 

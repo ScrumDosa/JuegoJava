@@ -43,14 +43,14 @@ public class Mapa {
 	
 	public void insertPj(int x, int y, boolean colocar) {
 		if(colocar == true)
-			map[x][y] = 1;
+			map[x][y] = 2;
 		else 
 			map[x][y] = 0;
 	}
 
         public void insertEnemy(int x, int y, boolean colocar) {
 		if(colocar == true)
- 			map[x][y] = 1;
+ 			map[x][y] = 3;
                 else 
 			map[x][y] = 0;
 	}
