@@ -70,30 +70,26 @@ public class Enemigo {
     }
     
     public void EnemyPatrol(int direccion) {
-        boolean movimiento = true;
         int newCoord = enemyX + boxSize * direccion;
-        int contador = 0;
+        double contador = 0;
         while (enemyX != newCoord) {
-            contador += 1;System.out.println(contador);
-            if (contador > 2500) {
+            contador += 0.05;
+            if (contador > 250000) {
                 if (direccion > 0) {
                     if ((newCoord - enemyX) > boxSize / 2) {
-                        img(rutaRel + walkDirection[0][0], newCoord, enemyY);
+                        img(rutaRel + walkDirection[0][0], enemyX, enemyY);                        System.out.println("1");
                     } else if ((newCoord - enemyX) < boxSize / 2 & (newCoord - enemyX) > 1) {
-                        img(rutaRel + walkDirection[0][1], newCoord, enemyY);
+                        img(rutaRel + walkDirection[0][1], enemyX, enemyY);                        System.out.println("2");
                     } else {
-                        img(rutaRel + walkDirection[0][2], newCoord, enemyY);
-                        //movimiento = false;
+                        img(rutaRel + walkDirection[0][2], enemyX, enemyY);                        System.out.println("3");
                     }
                 } else if (direccion < 0) {
                     if ((enemyX - newCoord) > boxSize / 2) {
-                        img(rutaRel + walkDirection[1][0], newCoord, enemyY);
-                        System.out.println(enemyX);
+                        img(rutaRel + walkDirection[1][0], enemyX, enemyY);
                     } else if ((enemyX - newCoord) < boxSize / 2 & (enemyX - newCoord) > 1) {
-                        img(rutaRel + walkDirection[1][1], newCoord, enemyY);
+                        img(rutaRel + walkDirection[1][1], enemyX, enemyY);
                     } else {
-                        img(rutaRel + walkDirection[1][2], newCoord, enemyY);
-                        //movimiento = false;
+                        img(rutaRel + walkDirection[1][2], enemyX, enemyY);
                     }
                 }
                 if (direccion > 0) {
