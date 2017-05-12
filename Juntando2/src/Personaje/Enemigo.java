@@ -18,12 +18,11 @@ public class Enemigo {
     static boolean movLeft = true;
     private int enemyX;
     private int enemyY;
-    static String rutaRel = ".//src//Pj_Estados_redimensionados//";
+    static String rutaRel = ".//src//Enemigo_Estados_redimensionados//";
     static String[][] walkDirection = 
 		{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
 		 {"Izquierda_Caminando1.png","Izquierda_Caminando2.png", "Izquierda_Iddle.png"},
-		 {"Frente_Caminando1.png","Frente_Caminando2.png", "Frente_Iddle.png"},
-		 {"Trasero_Caminando1.png","Trasero_Caminando2.png","Trasero_Iddle.png"}};
+		 {"Frente_Caminando1.png", "", ""}};
 
     public Enemigo() {
     windowMapClass = new Ventana_mapa();
@@ -47,9 +46,12 @@ public class Enemigo {
         
 	mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, true);
 
+        
 	enemyLabel.setIcon(enemy);                                              // A este JLabel le metemos un Icon, con la ruta de la imagen, 
 	enemyLabel.setBounds(enemyX, enemyY, boxSize, boxSize);          	// posteriormente, le daremos unas coordenadas y tama�o.
-	window.add(enemyLabel);  
+	window.add(enemyLabel); 
+        
+        
     }
     
     public void EnemyDirection(){
