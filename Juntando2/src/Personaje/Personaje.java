@@ -111,7 +111,7 @@ public class Personaje{
                         enemyClass.setVida(daño);
                         if (enemyClass.getVida() <= 0) {
                            enemyClass.enemyLabel.setVisible(false);
-                          enemyClass.enemyLabel.setEnabled(false);
+                           enemyClass.enemyLabel.setEnabled(false);
                         }
                     }
                     tryAttack = false;

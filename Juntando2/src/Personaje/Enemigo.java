@@ -1,6 +1,7 @@
 package Personaje;
 
 import static Personaje.Personaje.boxSize;
+import static Personaje.Personaje.daño;
 import static Personaje.Personaje.rutaRel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -12,6 +13,7 @@ public class Enemigo {
    
     private static Mapa mapClass;
     private static Ventana_mapa windowMapClass;
+    private static Personaje pjClass;
         
     static JLabel enemyLabel;                                                   // Creo un JLaber.
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
@@ -29,6 +31,7 @@ public class Enemigo {
 
     public Enemigo() {
         windowMapClass = new Ventana_mapa();
+        pjClass = new Personaje();
         enemyLabel = new JLabel("");
         this.vida = vida;
         this.daño = daño;
@@ -69,8 +72,17 @@ public class Enemigo {
     public void EnemyDirection(){
         if(movLeft == true){
             if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) >= 1){
-                movLeft = false;
-                movRight = true;
+                if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) ==2){
+                    pjClass.setVida(daño);
+                        if (pjClass.getVida() <= 0) {
+                           pjClass.PJlabel.setVisible(false);
+                           pjClass.PJlabel.setEnabled(false);
+                           mapClass.insertPj(enemyX/boxSize-1, enemyY/boxSize, false);
+                        }
+                } else {                
+                    movLeft = false;
+                    movRight = true;
+                }
             } else{
                 mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, false);
                 mapClass.insertEnemy(enemyX/boxSize-1, enemyY/boxSize, true);
@@ -79,8 +91,17 @@ public class Enemigo {
             }
         } else if(movRight == true){
             if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) >= 1){
-                movRight = false;
-                movLeft = true;
+                if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) ==2){
+                    pjClass.setVida(daño);
+                        if (pjClass.getVida() <= 0) {
+                           pjClass.PJlabel.setVisible(false);
+                           pjClass.PJlabel.setEnabled(false);
+                           mapClass.insertPj(enemyX/boxSize+1, enemyY/boxSize, false);
+                        }
+                } else {
+                    movRight = false;
+                    movLeft = true;
+                }
                 EnemyDirection();
             } else{
                 mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, false);
