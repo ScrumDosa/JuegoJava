@@ -58,7 +58,7 @@ public class Personaje{
         enemyClass.CreateEnemy(window);
         
         //Colocalmos el fondo
-        ImageIcon background = new ImageIcon(".//src//Imagenes//background.jpg");
+        ImageIcon background = new ImageIcon(".//src//Imagenes//map1.jpg");
         window.add(BGlabel);
         BGlabel.setIcon(background);
         BGlabel.setBounds(0, 0, 800, 800);
