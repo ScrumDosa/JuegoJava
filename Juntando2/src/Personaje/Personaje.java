@@ -107,7 +107,7 @@ public class Personaje{
 		System.out.println();							// Sin esto, no funciona el bucle. Misa no entender el motivo. Hay que buscarlo.
 		
                 if (tryAttack == true) {
-                    if (lookForEnemy(lastDirection, pjx, pjy) == 3) {
+                    if (lookForEnemy(lastDirection, pjx, pjy) == 3) { 
                         enemyClass.setVida(daño);
                         if (enemyClass.getVida() <= 0) {
                            enemyClass.enemyLabel.setVisible(false);
@@ -221,16 +221,20 @@ public class Personaje{
         this.vida -= daño; // para bajar la vida en caso de recibir un ataque del enemigo 
     }
     
-    public static int lookForEnemy(int direction, int x, int y){
-        if(direction == 1)
-            return mapClass.checkMap(x/boxSize, y/boxSize+1);
-        else if(direction == 2)
-            return mapClass.checkMap(x/boxSize+1, y/boxSize);
-        else if(direction == 3)
-            return mapClass.checkMap(x/boxSize, y/boxSize-1);
-        else if(direction == 4)
-            return mapClass.checkMap(x/boxSize-1, y/boxSize);
-        
+    public static int lookForEnemy(int direction, int x, int y) {
+        switch (direction) {
+            case 1:
+                return mapClass.checkMap(x / boxSize, y / boxSize - 1);
+            case 2:
+                return mapClass.checkMap(x / boxSize + 1, y / boxSize);
+            case 3:
+                return mapClass.checkMap(x / boxSize, y / boxSize + 1);
+            case 4:
+                return mapClass.checkMap(x / boxSize - 1, y / boxSize);
+            default:
+                break;
+        }
+
         return 0;
     }
     
