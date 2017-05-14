@@ -24,7 +24,7 @@ public class Mapa {
 	public void readFile(){
 		 try {
 			 Scanner scan = new Scanner(System.in);
-			 scan = new Scanner(new File(".//src//Personaje//mapArray.txt"));
+			 scan = new Scanner(new File(".//src//Personaje//map1.txt"));
 			 map = new int[arraySize][arraySize];
 			 while(scan.hasNext()){
 				 for(int i = 0; i < arraySize; i++){
