@@ -11,7 +11,7 @@ public class Enemigo {
     
     static int boxSize = 40;
    
-    private static Mapa mapClass;
+    static Mapa mapClass;
     private static Ventana_mapa windowMapClass;
     private static Personaje pjClass;
         
@@ -69,45 +69,47 @@ public class Enemigo {
         
     }
     
-    public void EnemyDirection(){
-        if(movLeft == true){
-            if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) >= 1){
-                if(mapClass.checkMap(enemyX/boxSize-1, enemyY/boxSize) ==2){
-                    //pjClass.setVida(daño);
+    public void EnemyDirection() {
+        if (this.vida > 0) {
+            if (movLeft == true) {
+                if (mapClass.checkMap(enemyX / boxSize - 1, enemyY / boxSize) >= 1) {
+                    if (mapClass.checkMap(enemyX / boxSize - 1, enemyY / boxSize) == 2) {
+                        pjClass.setVida(daño);
                         if (pjClass.getVida() <= 0) {
-                           pjClass.PJlabel.setVisible(false);
-                           pjClass.PJlabel.setEnabled(false);
-                           mapClass.insertPj(enemyX/boxSize-1, enemyY/boxSize, false);
+                            pjClass.PJlabel.setVisible(false);
+                            pjClass.PJlabel.setEnabled(false);
+                            mapClass.insertPj(enemyX / boxSize, enemyY / boxSize, false);
                         }
-                } else {                
-                    movLeft = false;
-                    movRight = true;
-                }
-            } else{
-                mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, false);
-                mapClass.insertEnemy(enemyX/boxSize-1, enemyY/boxSize, true);
-                EnemyPatrol(-1);
-                
-            }
-        } else if(movRight == true){
-            if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) >= 1){
-                if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) ==2){
-                    pjClass.setVida(daño);
-                        if (pjClass.getVida() <= 0) {
-                           pjClass.PJlabel.setVisible(false);
-                           pjClass.PJlabel.setEnabled(false);
-                           mapClass.insertPj(enemyX/boxSize+1, enemyY/boxSize, false);
-                        }
+                    } else {
+                        movLeft = false;
+                        movRight = true;
+                    }
                 } else {
-                    movRight = false;
-                    movLeft = true;
+                    mapClass.insertEnemy(enemyX / boxSize, enemyY / boxSize, false);
+                    mapClass.insertEnemy(enemyX / boxSize - 1, enemyY / boxSize, true);
+                    EnemyPatrol(-1);
+
                 }
-                EnemyDirection();
-            } else{
-                mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, false);
-                mapClass.insertEnemy(enemyX/boxSize+1, enemyY/boxSize, true);
-                EnemyPatrol(1);
-                
+            } else if (movRight == true) {
+                if (mapClass.checkMap(enemyX / boxSize + 1, enemyY / boxSize) >= 1) {
+                    if (mapClass.checkMap(enemyX / boxSize + 1, enemyY / boxSize) == 2) {
+                        //pjClass.setVida(daño);
+                        if (pjClass.getVida() <= 0) {
+                            pjClass.PJlabel.setVisible(false);
+                            pjClass.PJlabel.setEnabled(false);
+                            mapClass.insertPj(enemyX / boxSize + 1, enemyY / boxSize, false);
+                        }
+                    } else {
+                        movRight = false;
+                        movLeft = true;
+                    }
+                    EnemyDirection();
+                } else {
+                    mapClass.insertEnemy(enemyX / boxSize, enemyY / boxSize, false);
+                    mapClass.insertEnemy(enemyX / boxSize + 1, enemyY / boxSize, true);
+                    EnemyPatrol(1);
+
+                }
             }
         }
     }

@@ -14,7 +14,6 @@ public class Main {
         
         frameClass.runInterface();
         pjClass.createPj();
-        //enemyClass.CreateEnemy();
     }
 
 }

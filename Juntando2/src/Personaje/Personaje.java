@@ -13,6 +13,7 @@ public class Personaje{
     private static FrameJuego frameClass = new FrameJuego();
     private static Ventana_mapa windowMapClass = new Ventana_mapa();
     private static Enemigo enemyClass = new Enemigo();
+    private static Quest questClass = new Quest();
     
     
     static int boxSize = 40;
@@ -34,6 +35,8 @@ public class Personaje{
 	
     private int vida = 100;
     public static int daño = 15;
+    static int nQuest = 0;
+    static boolean talk = false;
     
     public static void createPj() {
      	
@@ -57,13 +60,17 @@ public class Personaje{
         enemyClass.setMapClass(mapClass);
         enemyClass.CreateEnemy(window);
         
+        //Creamos NPCs
+        questClass.setMapClass(mapClass);
+        questClass.CreateNPC(window);
+        //questClass.startQuest(window);
+        
+        
         //Colocalmos el fondo
         ImageIcon background = new ImageIcon(".//src//Imagenes//map1.jpg");
         window.add(BGlabel);
         BGlabel.setIcon(background);
         BGlabel.setBounds(0, 0, 800, 800);
-        BGlabel.setEnabled(true);
-        BGlabel.setVisible(true);
         
         
         
@@ -88,8 +95,11 @@ public class Personaje{
 		    		movDown = true;						// ponemos a true el movimiento hacia abajo.
                                 lastDirection = 3;
 		    	break;
-                         case KeyEvent.VK_E:
+                        case KeyEvent.VK_Q:
                              tryAttack = true;
+                        break;
+                        case KeyEvent.VK_E:
+                            talk = true;
                         break;
 			}
 		}
@@ -104,8 +114,8 @@ public class Personaje{
 															// (Lo que se hace a continuaci�n, no se realiza en el keyPressed porque var�a su comportamiento)
 	while(true){										// Durante el resto del programa, ejecutaremos un bucle infinito. 
 		
-		System.out.println();							// Sin esto, no funciona el bucle. Misa no entender el motivo. Hay que buscarlo.
-		
+		quest(talk, pjx, pjy, window);
+                
                 if (tryAttack == true) {
                     if (lookForEnemy(lastDirection, pjx, pjy) == 3) { 
                         enemyClass.setVida(daño);
@@ -237,6 +247,62 @@ public class Personaje{
 
         return 0;
     }
+    
+    public static void quest(boolean talk, int pjx, int pjy, JFrame window){ 
+                if (talk == true){
+                    if ((lookForEnemy(lastDirection, pjx, pjy) == 4 && nQuest == 0) ||(lookForEnemy(lastDirection, pjx, pjy) == 4 && nQuest == 1)){
+                        questClass.mostrarDialogo(window, talk, nQuest);
+                        if (nQuest == 0)
+                            nQuest++;
+                    }
+                    if (lookForEnemy(lastDirection, pjx, pjy) == 4 && nQuest >= 2){
+                        if(nQuest == 2){                           
+                            questClass.mostrarDialogo(window, talk, nQuest);
+                            nQuest++;
+                        } else if(nQuest == 4){
+                            questClass.mostrarDialogo(window, talk, nQuest);
+                        }
+                    }
+                    if((lookForEnemy(lastDirection, pjx, pjy) != 4)){
+                        talk = false;
+                        questClass.mostrarDialogo(window, talk, nQuest);
+                        if (nQuest == 3)
+                            nQuest++;
+                    }
+                }
+                
+                nQuest = questClass.comprobarQuest(nQuest);
+    }
+    
+    
+    
+    /*
+ +La idea seria que no cogiese readFile la misma ruta que se le pase por parametro o que sea opcional o hacer un segundo readFile para cuando se cambie
+ +de mapa. Bien dicho eso el personaje solo puede moverse por donde haya 0 pero... y si ponemos un 2 en el mapa y dejamos que se situe encima del 2 y
+ +comprobando esas coordenadas si vemos un 2 cargamos el fondo de nuevo e insertamos el pj en el lado que le corresponda algo en plan 
+ +if(checkMap(x, y) == 2){
+ +    readFile(mapa2)
+ +    imageIcon(de la clase personaje ponemos la nueva imagen de fondo)
+ +    insertpj(lateral del mapa por el que entre osea si entra por la izquierda le situamos a la derecha)
+ +}
+ +
+ +Respecto a la quest por ejemplo que la quest sea matar al enemigo y que nos la de un tio que pongamos en pantalla al presionar una tecla nos saque un 
+ +dialogo JOptionPane.showInputDialog es un poco cutre pero nos soluciona y ponemos que cuando muera el enemigo salte otro con quest completa y nos sume 1
+ +a un item
+ +
+ +te dejo hechos los set de los items en frame juego... seria algo en plan 
+ +
+ +if(enemigo.getvida() >= 0)
+ +    JOptionPane.showInputDialog(tiene 2 parametros miratelos) quest complete
+ +    JOptionPane.showInputDialog(tiene 2 parametros miratelos) recompensa: +1 manzana y todo eso
+ +
+ +    frameClass.setItem1(1) esto lo incrementa en uno
+ +    frameClass.setItem2(1) esto lo incrementa en uno
+ +    frameClass.setItem3(1) esto lo incrementa en uno
+ +    frameClass.setItem4(1) esto lo incrementa en uno
+ +    frameClass.setAnillo(1) esto lo incrementa en uno
+ +
+ +*/
     
 }
 
