@@ -92,7 +92,7 @@ public class Enemigo {
         } else if(movRight == true){
             if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) >= 1){
                 if(mapClass.checkMap(enemyX/boxSize+1, enemyY/boxSize) ==2){
-                    //pjClass.setVida(daño);
+                    pjClass.setVida(daño);
                         if (pjClass.getVida() <= 0) {
                            pjClass.PJlabel.setVisible(false);
                            pjClass.PJlabel.setEnabled(false);
