@@ -46,6 +46,8 @@ public class Enemigo {
     }
     public void setVida(int daño){
         this.vida -= daño;
+        if(this.vida == 0)
+            mapClass.insertPj(enemyX / boxSize, enemyY / boxSize, false);
     }
     
     
