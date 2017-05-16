@@ -1,8 +1,5 @@
 package Personaje;
 
-import static Personaje.Personaje.boxSize;
-import static Personaje.Personaje.daño;
-import static Personaje.Personaje.rutaRel;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -81,6 +78,7 @@ public class Enemigo {
                             pjClass.PJlabel.setVisible(false);
                             pjClass.PJlabel.setEnabled(false);
                             mapClass.insertPj(enemyX / boxSize, enemyY / boxSize, false);
+                            System.exit(0);
                         }
                     } else {
                         movLeft = false;
@@ -95,11 +93,12 @@ public class Enemigo {
             } else if (movRight == true) {
                 if (mapClass.checkMap(enemyX / boxSize + 1, enemyY / boxSize) >= 1) {
                     if (mapClass.checkMap(enemyX / boxSize + 1, enemyY / boxSize) == 2) {
-                        //pjClass.setVida(daño);
+                        pjClass.setVida(daño);
                         if (pjClass.getVida() <= 0) {
                             pjClass.PJlabel.setVisible(false);
                             pjClass.PJlabel.setEnabled(false);
                             mapClass.insertPj(enemyX / boxSize + 1, enemyY / boxSize, false);
+                            System.exit(0);
                         }
                     } else {
                         movRight = false;
