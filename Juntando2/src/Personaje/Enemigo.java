@@ -105,7 +105,6 @@ public class Enemigo {
                         movRight = false;
                         movLeft = true;
                     }
-                    EnemyDirection();
                 } else {
                     mapClass.insertEnemy(enemyX / boxSize, enemyY / boxSize, false);
                     mapClass.insertEnemy(enemyX / boxSize + 1, enemyY / boxSize, true);
