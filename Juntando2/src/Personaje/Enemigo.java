@@ -20,7 +20,7 @@ public class Enemigo {
     static boolean movLeft = true;
     private int enemyX;
     private int enemyY;
-    static String rutaRel = ".//src//Enemigo_Estados_redimensionados//";
+    static String rutaRel = ".//src//Enemigo_Estados_Redimensionados//";
     static String[][] walkDirection = 
 		{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
 		 {"Izquierda_Caminando1.png","Izquierda_Caminando2.png", "Izquierda_Iddle.png"},

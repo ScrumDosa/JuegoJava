@@ -34,7 +34,7 @@ public class Personaje{
 	 {"Trasero_Caminando1.png","Trasero_Caminando2.png","Trasero_Iddle.png"}};
 	
     private int vida = 100;
-    public static int daño = 15;
+    public static int daño = 30;
     static int nQuest = 0;
     static boolean talk = false;
     

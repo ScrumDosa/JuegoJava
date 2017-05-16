@@ -28,7 +28,7 @@ public class Quest {
         windowMapClass = new Ventana_mapa();
         NPClabel = new JLabel("");
         
-        ImageIcon enemy = new ImageIcon( ".//src//Enemigo_Estados_redimensionados//Frente_Iddle.png");
+        ImageIcon enemy = new ImageIcon( ".//src//Enemigo_Estados_Redimensionados//Frente_Iddle.png");
         
         NPCx = boxSize * 5;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
 	NPCy = boxSize;
