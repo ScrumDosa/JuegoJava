@@ -1,4 +1,5 @@
 #  :ring: EN BUSCA DEL ANILLO PERDIDO :ring:
+![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_estados_redimensionado/Frente_Caminando2.png)
 ## :one: Sprint
 :white_check_mark: Mapa (Ventana).
 
@@ -32,9 +33,14 @@
 ## :three: Sprint
 
 ##  :couple: Equipo De Trabajo  :couple:
- 1. :bowtie: David Arribas https://github.com/DavidUps
- 2. :bowtie: Guillermo Gomez https://github.com/GuillermoGomezdr
- 3. :bowtie: Jonatan Domingez https://github.com/joniesp
- 4. :bowtie: David Rubio https://github.com/drubiom
- 5. :bowtie: Ángel García https://github.com/angelgarasenjo
- 6. :bowtie: Ivan Tome https://github.com/ivan196
+ 1. :bowtie: David Arribas [github](https://github.com/DavidUps)
+ 
+ 2. :bowtie: Guillermo Gomez [github](https://github.com/GuillermoGomezdr)
+ 
+ 3. :bowtie: Jonatan Domingez [github](https://github.com/joniesp)
+ 
+ 4. :bowtie: David Rubio [github](https://github.com/drubiom)
+ 
+ 5. :bowtie: Ángel García [github](https://github.com/angelgarasenjo)
+ 
+ 6. :bowtie: Ivan Tome [github](https://github.com/ivan196)
