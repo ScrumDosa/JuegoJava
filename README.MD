@@ -28,7 +28,7 @@
 
 :white_check_mark: Correguir interfaz del juego.
 
-:white_large_square: Crear Mapas.
+:white_large_square: Mapas.
 
 ## :three: Sprint
 
