@@ -32,6 +32,37 @@
 
 ## :three: Sprint
 
+## PERSONAJES
+ > Protagonista
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Derecha_Caminando1.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Derecha_Caminando2.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Derecha_Iddle.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Frente_Caminando1.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Frente_Caminando2.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Frente_Iddle.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Trasero_Caminando1.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Trasero_Caminando2.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Personaje/Pj_Estados_redimensionados/Trasero_Iddle.png)
+ > Enemigo
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Enemigo_Estados_Redimensionados/Derecha_Caminando1.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Enemigo_Estados_Redimensionados/Derecha_Iddle.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Enemigo_Estados_Redimensionados/Frente_Iddle.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Enemigo_Estados_Redimensionados/Izquierda_Caminando1.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Enemigo_Estados_Redimensionados/Izquierda_Caminando2.png)
+ ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Enemigo_Estados_Redimensionados/Izquierda_Iddle.png)
+
+
+## MAPAS
+ > mapa 1
+![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa1.jpg)
+ > mapa 2
+![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa2.jpg)
+ > mapa 3
+![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa3.jpg)
+ > mapa 4
+![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa4.jpg)
+
+
 ##  :couple: Equipo De Trabajo  :couple:
  1. :bowtie: David Arribas [github](https://github.com/DavidUps)
  
@@ -44,3 +75,4 @@
  5. :bowtie: Ángel García [github](https://github.com/angelgarasenjo)
  
  6. :bowtie: Ivan Tome [github](https://github.com/ivan196)
+
