@@ -1,5 +1,5 @@
 #  :ring: EN BUSCA DEL ANILLO PERDIDO :ring:
-## :one: Sprint
+## :one: Sprint :white_check_square:
     :white_check_square: Mapa (Ventana).
     :white_check_square: Diseño Personaje y poner sobre el mapa.
     :white_check_square: Mapa (Graficos).
