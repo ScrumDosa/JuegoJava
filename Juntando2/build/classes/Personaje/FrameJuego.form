@@ -44,7 +44,7 @@
     <Component class="javax.swing.JLabel" name="jLabelIcon2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/chicken.png"/>
+          <Image iconType="3" name="/Imagenes/chicken2.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -82,7 +82,7 @@
     <Component class="javax.swing.JLabel" name="jLabelIcon5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/ring.jpeg"/>
+          <Image iconType="3" name="/Imagenes/ring.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="algo"/>
       </Properties>
