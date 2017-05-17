@@ -55,11 +55,11 @@
 ## MAPAS
  > mapa 1
 ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa1.jpg)
- > mapa 2
+
+> mapa 2
 ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa2.jpg)
+
  > mapa 3
-![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa3.jpg)
- > mapa 4
 ![](https://github.com/ScrumDosa/JuegoJava/blob/master/Juntando2/src/Imagenes/mapa4.jpg)
 
 
