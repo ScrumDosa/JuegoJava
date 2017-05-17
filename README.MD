@@ -23,7 +23,7 @@
 
 :white_check_mark: Crear misiones.
 
-:white_check_smark: Crear Enemigos.
+:white_check_mark: Crear Enemigos.
 
 :white_check_mark: Correguir interfaz del juego.
 
