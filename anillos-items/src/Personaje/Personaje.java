@@ -174,8 +174,31 @@ public class Personaje{
                 movUp = false;
 		movDown = false;
                 enemyClass.EnemyDirection();
+                
+                
 	}
     }	
+    
+     public static void checkObject(int x, int y){
+        switch(mapClass.checkMap(x, y)){
+            case -5:
+                frameClass.setItem1(1);
+            break;
+            case -6:
+                frameClass.setItem2(1);
+            break;
+            case -7:
+                frameClass.setItem3(1);
+            break;
+            case -8:
+                frameClass.setItem4(1);
+            break;
+            case -9:
+                frameClass.setAnillo(1);
+            break;
+            
+        }
+     }
 	
 	// Par�metros a pasar en la funci�n:
 	//		boolean direccion -> La variable booleana de movimiento, si se pasa a true, pasar�n cosas (explicado m�s adelante).
@@ -212,6 +235,7 @@ public class Personaje{
     public static void imprimirPersonaje(char eje, int recorrido, int CoordCamb, int CoordStatic, int newCoord, ImageIcon Pj) {
         if (eje == 'x') {
             mapClass.insertPj(CoordCamb / boxSize, CoordStatic / boxSize, false);
+            checkObject(newCoord / boxSize, CoordStatic / boxSize);
             mapClass.insertPj(newCoord / boxSize, CoordStatic / boxSize, true);
             if (recorrido > 0) {
                 if ((newCoord - CoordCamb) > boxSize / 2) {
@@ -232,6 +256,7 @@ public class Personaje{
             }
         } else if (eje == 'y') {
             mapClass.insertPj(CoordStatic / boxSize, CoordCamb / boxSize, false);
+            checkObject(CoordStatic / boxSize, newCoord / boxSize);
             mapClass.insertPj(CoordStatic / boxSize, newCoord / boxSize, true);
 
             if (recorrido > 0) {
