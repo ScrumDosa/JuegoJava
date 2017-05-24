@@ -20,12 +20,16 @@ public class Personaje{
 	 
     static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
     static JLabel BGlabel = new JLabel();
+    static JLabel ObjectLabel = new JLabel();
+    
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
     static boolean movLeft = false;							// y las inicializamos como false.
     static boolean movUp = false;
     static boolean movDown = false;
     static boolean tryAttack = false;
+    
     static int lastDirection = 0; //1. Arriba // 2. Derecha // 3. Abajo // 4. Izquierda
+    
     static String rutaRel = ".//src//Pj_Estados_redimensionados//";
     static String[][] walkDirection = 
 	{{"Derecha_Caminando1.png","Derecha_Caminando2.png", "Derecha_Iddle.png"},
@@ -65,6 +69,12 @@ public class Personaje{
         questClass.CreateNPC(window);
         //questClass.startQuest(window);
         
+        //Colocamos un objeto.
+        ImageIcon apple = new ImageIcon(".//src//Imagenes//apple.png");
+        ObjectLabel.setIcon(apple);
+        ObjectLabel.setBounds(80,80, 40,40);
+        window.add(ObjectLabel);
+        mapClass.insertMap(2, 2, true, -5);
         
         //Colocalmos el fondo
         ImageIcon background = new ImageIcon(".//src//Imagenes//map1.jpg");
@@ -183,6 +193,7 @@ public class Personaje{
         switch(mapClass.checkMap(x, y)){
             case -5:
                 frameClass.setItem1(1);
+                ObjectLabel.setVisible(false);
             break;
             case -6:
                 frameClass.setItem2(1);
