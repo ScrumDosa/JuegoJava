@@ -33,7 +33,7 @@ public class Quest {
         NPCx = boxSize * 5;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
 	NPCy = boxSize;
         
-	mapClass.insertNPC(NPCx/boxSize, NPCy/boxSize, true);
+	mapClass.insertMap(NPCx/boxSize, NPCy/boxSize, true,4);
 
         
 	NPClabel.setIcon(enemy);                                              // A este JLabel le metemos un Icon, con la ruta de la imagen, 

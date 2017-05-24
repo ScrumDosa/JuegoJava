@@ -35,7 +35,7 @@ public class Personaje{
 	
     private static int vida = 300;
     public static int daño = 30;
-    static int nQuest = 0;
+    static int nQuest = 0;                      // Variable contador de la quest 1.
     static boolean talk = false;
     
     public static void createPj() {
@@ -49,7 +49,7 @@ public class Personaje{
 		                
 	int pjx = boxSize;										// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
 	int pjy = boxSize;
-	mapClass.insertPj(pjx/boxSize, pjy/boxSize, true);
+	mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
 
 	PJlabel.setIcon(Pj);                                                    // A este JLabel le metemos un Icon, con la ruta de la imagen, 
 	PJlabel.setBounds(pjx, pjy, boxSize, boxSize);          			// posteriormente, le daremos unas coordenadas y tama�o.
@@ -225,7 +225,7 @@ public class Personaje{
 					CoordCamb++;													// y incrementamos (o disminuimos) la coordenada en la que se mueve el Pj.
 				else
 					CoordCamb--;
-                        		contador = 0;														//7. Reseteamos el contador.
+                        	contador = 0;														//7. Reseteamos el contador.
 			}
 		}
 	}
@@ -234,9 +234,9 @@ public class Personaje{
 	
     public static void imprimirPersonaje(char eje, int recorrido, int CoordCamb, int CoordStatic, int newCoord, ImageIcon Pj) {
         if (eje == 'x') {
-            mapClass.insertPj(CoordCamb / boxSize, CoordStatic / boxSize, false);
+            mapClass.insertMap(CoordCamb / boxSize, CoordStatic / boxSize, false, 2);
             checkObject(newCoord / boxSize, CoordStatic / boxSize);
-            mapClass.insertPj(newCoord / boxSize, CoordStatic / boxSize, true);
+            mapClass.insertMap(newCoord / boxSize, CoordStatic / boxSize, true, 2);
             if (recorrido > 0) {
                 if ((newCoord - CoordCamb) > boxSize / 2) {
                     img(rutaRel + walkDirection[0][0], Pj, CoordCamb, CoordStatic);
@@ -255,9 +255,9 @@ public class Personaje{
                 }
             }
         } else if (eje == 'y') {
-            mapClass.insertPj(CoordStatic / boxSize, CoordCamb / boxSize, false);
+            mapClass.insertMap(CoordStatic / boxSize, CoordCamb / boxSize, false, 2);
             checkObject(CoordStatic / boxSize, newCoord / boxSize);
-            mapClass.insertPj(CoordStatic / boxSize, newCoord / boxSize, true);
+            mapClass.insertMap(CoordStatic / boxSize, newCoord / boxSize, true, 2);
 
             if (recorrido > 0) {
                 if ((newCoord - CoordCamb) > boxSize / 2) {
@@ -310,7 +310,7 @@ public class Personaje{
         return 0;
     }
     
-    public static void quest(boolean talk, int pjx, int pjy, JFrame window){ 
+    public static void quest(boolean talk, int pjx, int pjy, JFrame window){                //funcion de la quest 1
                 if (talk == true){
                     if ((lookForEnemy(lastDirection, pjx, pjy) == 4 && nQuest == 0) ||(lookForEnemy(lastDirection, pjx, pjy) == 4 && nQuest == 1)){
                         questClass.mostrarDialogo(window, talk, nQuest);

@@ -5,8 +5,11 @@
         <group>
             <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/Personaje.java</file>
             <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/Quest.java</file>
+            <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/Enemigo.java</file>
+            <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/map1.txt</file>
             <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/Ventana_mapa.java</file>
-            <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/Main.java</file>
+            <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/FrameJuego.java</file>
+            <file>file:/D:/Users/Willy/Desktop/Github/JuegoJava/anillos-items/src/Personaje/Mapa.java</file>
         </group>
     </open-files>
 </project-private>

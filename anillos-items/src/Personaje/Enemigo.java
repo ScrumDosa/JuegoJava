@@ -44,7 +44,7 @@ public class Enemigo {
     public void setVida(int daño){
         this.vida -= daño;
         if(this.vida == 0)
-            mapClass.insertPj(enemyX / boxSize, enemyY / boxSize, false);
+            mapClass.insertMap(enemyX / boxSize, enemyY / boxSize, false, 3);
     }
     
     
@@ -58,7 +58,7 @@ public class Enemigo {
         enemyX = boxSize * 18;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
 	enemyY = boxSize * 9;
         
-	mapClass.insertEnemy(enemyX/boxSize, enemyY/boxSize, true);
+	mapClass.insertMap(enemyX/boxSize, enemyY/boxSize, true, 3);
 
         
 	enemyLabel.setIcon(enemy);                                              // A este JLabel le metemos un Icon, con la ruta de la imagen, 
@@ -77,7 +77,7 @@ public class Enemigo {
                         if (pjClass.getVida() <= 0) {
                             pjClass.PJlabel.setVisible(false);
                             pjClass.PJlabel.setEnabled(false);
-                            mapClass.insertPj(enemyX / boxSize, enemyY / boxSize, false);
+                            mapClass.insertMap(enemyX / boxSize, enemyY / boxSize, false, 2);
                             System.exit(0);
                         }
                     } else {
@@ -85,8 +85,8 @@ public class Enemigo {
                         movRight = true;
                     }
                 } else {
-                    mapClass.insertEnemy(enemyX / boxSize, enemyY / boxSize, false);
-                    mapClass.insertEnemy(enemyX / boxSize - 1, enemyY / boxSize, true);
+                    mapClass.insertMap(enemyX / boxSize, enemyY / boxSize, false, 3);
+                    mapClass.insertMap(enemyX / boxSize - 1, enemyY / boxSize, true, 3);
                     EnemyPatrol(-1);
 
                 }
@@ -97,7 +97,7 @@ public class Enemigo {
                         if (pjClass.getVida() <= 0) {
                             pjClass.PJlabel.setVisible(false);
                             pjClass.PJlabel.setEnabled(false);
-                            mapClass.insertPj(enemyX / boxSize + 1, enemyY / boxSize, false);
+                            mapClass.insertMap(enemyX / boxSize + 1, enemyY / boxSize, false, 2);
                             System.exit(0);
                         }
                     } else {
@@ -105,8 +105,8 @@ public class Enemigo {
                         movLeft = true;
                     }
                 } else {
-                    mapClass.insertEnemy(enemyX / boxSize, enemyY / boxSize, false);
-                    mapClass.insertEnemy(enemyX / boxSize + 1, enemyY / boxSize, true);
+                    mapClass.insertMap(enemyX / boxSize, enemyY / boxSize, false, 3);
+                    mapClass.insertMap(enemyX / boxSize + 1, enemyY / boxSize, true, 3);
                     EnemyPatrol(1);
 
                 }

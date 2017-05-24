@@ -41,28 +41,14 @@ public class Mapa {
 		 }
 	}
 	
-	public void insertPj(int x, int y, boolean colocar) {
+	public void insertMap(int x, int y, boolean colocar, int num) {     //funcion para insertar un valor o quitarlo del array bidimensional
 		if(colocar == true)
-			map[x][y] = 2;
+			map[x][y] = num;
 		else 
 			map[x][y] = 0;
 	}
 
-        public void insertEnemy(int x, int y, boolean colocar) {
-		if(colocar == true)
- 			map[x][y] = 3;
-                else 
-			map[x][y] = 0;
-	}
-        
-        public void insertNPC(int x, int y, boolean colocar) {
-		if(colocar == true)
- 			map[x][y] = 4;
-                else 
-			map[x][y] = 0;
-	}
-
-	public int checkMap(int x, int y){
+	public int checkMap(int x, int y){                  // Funcion para mirar que hay en el array bidimensional
 		return map[x][y];
 	}
 }
