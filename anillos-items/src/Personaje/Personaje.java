@@ -247,6 +247,35 @@ public class Personaje{
                         MapActual = 4;
                         break;
                     }
+                    
+                    enemyClass.enemyLabel.setVisible(false);
+                    Quest.NPClabel.setVisible(false);
+                    ObjectLabel.setVisible(false);
+                    
+                    return CoordCamb;
+                }
+                if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -2){
+                    switch(MapActual){
+                        case 2:
+                        background = new ImageIcon(".//src//Imagenes//mapa1.jpg");
+                        BGlabel.setIcon(background);
+                        mapClass.readFile(".//src//Personaje//map1.txt");
+                        MapActual = 1;
+                        break;
+                        case 3:
+                        background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
+                        BGlabel.setIcon(background);
+                        mapClass.readFile(".//src//Personaje//map2.txt");
+                        MapActual = 2;
+                        break;
+                        case 4:
+                        background = new ImageIcon(".//src//Imagenes//mapa3.jpg");
+                        BGlabel.setIcon(background);
+                        mapClass.readFile(".//src//Personaje//map3.txt");
+                        MapActual = 3;
+                        break;
+                    }
+                    
                     enemyClass.enemyLabel.setVisible(false);
                     Quest.NPClabel.setVisible(false);
                     ObjectLabel.setVisible(false);
