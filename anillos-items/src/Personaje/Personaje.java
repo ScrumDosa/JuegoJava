@@ -21,6 +21,7 @@ public class Personaje{
     static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
     static JLabel BGlabel = new JLabel();
     static JLabel ObjectLabel = new JLabel();
+    static ImageIcon background = new ImageIcon("");
     
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
     static boolean movLeft = false;							// y las inicializamos como false.
@@ -44,7 +45,7 @@ public class Personaje{
     
     public static void createPj() {
      	
-	mapClass.readFile();
+	mapClass.readFile(".//src//Personaje//map1.txt");
                 
 	windowMapClass.create_window();
         JFrame window = windowMapClass.get_window();
@@ -77,7 +78,7 @@ public class Personaje{
         mapClass.insertMap(2, 2, true, -5);
         
         //Colocalmos el fondo
-        ImageIcon background = new ImageIcon(".//src//Imagenes//map1.jpg");
+        background = new ImageIcon(".//src//Imagenes//map1.jpg");
         window.add(BGlabel);
         BGlabel.setIcon(background);
         BGlabel.setBounds(0, 0, 800, 800);
@@ -221,9 +222,16 @@ public class Personaje{
         double contador = 0;														//Crearemos una variable que nos servir� de contador.
 	int newCoord = CoordCamb + recorrido;										//Calcularemos la coordenada final.
 		
-	if(eje == 'x')
+	if(eje == 'x'){
 		if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) >= 1)
 			return CoordCamb;
+                if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -1){
+                    background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
+                    BGlabel.setIcon(background);
+                    mapClass.readFile(".//src//Personaje//map2.txt");
+                    return CoordCamb;
+                }
+        }
 	if (eje == 'y')
 		if(mapClass.checkMap(CoordStatic/boxSize, newCoord/boxSize) >= 1)
 			return CoordCamb;

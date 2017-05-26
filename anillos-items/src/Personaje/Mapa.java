@@ -21,10 +21,10 @@ public class Mapa {
         return boxSize;
     }
 	
-	public void readFile(){
+	public void readFile(String ruta){
 		 try {
 			 Scanner scan = new Scanner(System.in);
-			 scan = new Scanner(new File(".//src//Personaje//map1.txt"));
+			 scan = new Scanner(new File(ruta));
 			 map = new int[arraySize][arraySize];
 			 while(scan.hasNext()){
 				 for(int i = 0; i < arraySize; i++){
