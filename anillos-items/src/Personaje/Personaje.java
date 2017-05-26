@@ -22,6 +22,7 @@ public class Personaje{
     static JLabel BGlabel = new JLabel();
     static JLabel ObjectLabel = new JLabel();
     static ImageIcon background = new ImageIcon("");
+    static int MapActual = 1;
     
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
     static boolean movLeft = false;							// y las inicializamos como false.
@@ -78,7 +79,7 @@ public class Personaje{
         mapClass.insertMap(2, 2, true, -5);
         
         //Colocalmos el fondo
-        background = new ImageIcon(".//src//Imagenes//map1.jpg");
+        background = new ImageIcon(".//src//Imagenes//mapa1.jpg");
         window.add(BGlabel);
         BGlabel.setIcon(background);
         BGlabel.setBounds(0, 0, 800, 800);
@@ -226,9 +227,30 @@ public class Personaje{
 		if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) >= 1)
 			return CoordCamb;
                 if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -1){
-                    background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
-                    BGlabel.setIcon(background);
-                    mapClass.readFile(".//src//Personaje//map2.txt");
+                    switch(MapActual){
+                        case 1:
+                        background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
+                        BGlabel.setIcon(background);
+                        mapClass.readFile(".//src//Personaje//map2.txt");
+                        MapActual = 2;
+                        break;
+                        case 2:
+                        background = new ImageIcon(".//src//Imagenes//mapa3.jpg");
+                        BGlabel.setIcon(background);
+                        mapClass.readFile(".//src//Personaje//map3.txt");
+                        MapActual = 3;
+                        break;
+                        case 3:
+                        background = new ImageIcon(".//src//Imagenes//mapa4.jpg");
+                        BGlabel.setIcon(background);
+                        mapClass.readFile(".//src//Personaje//map4.txt");
+                        MapActual = 4;
+                        break;
+                    }
+                    enemyClass.enemyLabel.setVisible(false);
+                    Quest.NPClabel.setVisible(false);
+                    ObjectLabel.setVisible(false);
+                    
                     return CoordCamb;
                 }
         }

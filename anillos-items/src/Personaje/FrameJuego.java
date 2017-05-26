@@ -20,7 +20,7 @@ public class FrameJuego extends javax.swing.JFrame {
     public FrameJuego() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setAlwaysOnTop(true);
+        //this.setAlwaysOnTop(true);
         this.jButton6.setBackground(Color.WHITE);
         this.jTextField1.setText(String.valueOf(item1));
         this.jTextField2.setText(String.valueOf(item2));
