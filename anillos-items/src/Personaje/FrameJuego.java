@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 
 public class FrameJuego extends javax.swing.JFrame {
 
-    private int item1 = 3;
-    private int item2 = 3;
-    private int item3 = 3;
-    private int item4 = 3;
-    private int anillo = 1;
+    private int item1 = 0;
+    private int item2 = 0;
+    private int item3 = 0;
+    private int item4 = 0;
+    private int anillo = 0;
 
     
     public FrameJuego() {

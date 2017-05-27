@@ -23,6 +23,12 @@ public class Personaje{
     static JLabel ObjectLabel = new JLabel();
     static ImageIcon background = new ImageIcon("");
     static int MapActual = 1;
+<<<<<<< HEAD
+    
+    static int pjx;
+    static int pjy;
+=======
+>>>>>>> 7d3cbce5cb10cc6593d7da2db475124882931424
     
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
     static boolean movLeft = false;							// y las inicializamos como false.
@@ -53,8 +59,8 @@ public class Personaje{
 
 	ImageIcon Pj = new ImageIcon( rutaRel+"Frente_Iddle.png");
 		                
-	int pjx = boxSize;										// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
-	int pjy = boxSize;
+	pjx = boxSize;										// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
+	pjy = boxSize;
 	mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
 
 	PJlabel.setIcon(Pj);                                                    // A este JLabel le metemos un Icon, con la ruta de la imagen, 
@@ -287,7 +293,16 @@ public class Personaje{
 		if(mapClass.checkMap(CoordStatic/boxSize, newCoord/boxSize) >= 1)
 			return CoordCamb;
 	if(direccion){														//Si una variable de movimiento es true, haremos:
-        	while(CoordCamb != newCoord){												//2. Siempre que la coordenada actual, sea distinta que la final...
+        	if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -1){
+                    cambiaMapa(MapActual, -1);
+                    System.out.println(pjx);
+                    return pjx;
+                }
+                if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -2){
+                    cambiaMapa(MapActual, -2);
+                    return pjx;
+                }
+                while(CoordCamb != newCoord){												//2. Siempre que la coordenada actual, sea distinta que la final...
 			contador+=0.05;															//3. ... Incrementa el contador en 0.05 (valor arbitrario para controlar la velocidad de movimiento)
 			if(contador > 250000){													//4. Llamamos a la función para colocar al Pj dependiendo de la dirección.
 				imprimirPersonaje(eje, recorrido, CoordCamb, CoordStatic, newCoord, Pj);
@@ -404,6 +419,63 @@ public class Personaje{
                 }
                 
                 nQuest = questClass.comprobarQuest(nQuest);
+    }
+    
+    public static void cambiaMapa(int MapActual, int casilla){
+        switch(MapActual){
+                        case 1:
+                            background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
+                            BGlabel.setIcon(background);
+                            mapClass.readFile(".//src//Personaje//map2.txt");
+                            MapActual ++;
+                            
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                                pjx = 18 * boxSize;
+                                pjy = 1 * boxSize;
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                                PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                                
+                            break;
+                        case 2:
+                            if(casilla == -1){
+                                background = new ImageIcon(".//src//Imagenes//mapa3.jpg");
+                                BGlabel.setIcon(background);
+                                mapClass.readFile(".//src//Personaje//map3.txt");
+                                MapActual ++;
+                            }
+                            else if(casilla == -2){
+                                background = new ImageIcon(".//src//Imagenes//mapa1.jpg");
+                            BGlabel.setIcon(background);
+                            mapClass.readFile(".//src//Personaje//map1.txt");
+                            MapActual --;
+                            }
+                            break;
+                        case 3:
+                           if(casilla == -1){
+                                background = new ImageIcon(".//src//Imagenes//mapa4.jpg");
+                                BGlabel.setIcon(background);
+                                mapClass.readFile(".//src//Personaje//map4.txt");
+                                MapActual ++;
+                            }
+                            else if(casilla == -2){
+                                background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
+                            BGlabel.setIcon(background);
+                            mapClass.readFile(".//src//Personaje//map2.txt");
+                            MapActual --;
+                            }
+                            break;
+                        case 4:
+                            background = new ImageIcon(".//src//Imagenes//mapa3.jpg");
+                            BGlabel.setIcon(background);
+                            mapClass.readFile(".//src//Personaje//map3.txt");
+                            MapActual --;
+                            break;
+                    }
+            enemyClass.setVida(1000);
+            enemyClass.enemyLabel.setVisible(false);
+            Quest.NPClabel.setVisible(false);
+            ObjectLabel.setVisible(false);
+        
     }
     
     
