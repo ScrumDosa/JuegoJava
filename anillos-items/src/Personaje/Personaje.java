@@ -207,6 +207,7 @@ public class Personaje{
             break;
             case -6:
                 frameClass.setItem2(1);
+                ObjectLabel.setVisible(false);
             break;
             case -7:
                 frameClass.setItem3(1);
@@ -366,6 +367,10 @@ public class Personaje{
     }
     
     public static void cambiaMapa(int casilla){
+        enemyClass.setVida(1000);
+        enemyClass.enemyLabel.setVisible(false);
+        Quest.NPClabel.setVisible(false);
+        ObjectLabel.setVisible(false);
         switch(MapActual){
                         case 1:
                             background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
@@ -395,9 +400,7 @@ public class Personaje{
                                 mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
                                 PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
                                 //Colocamos objeto en mapa 3
-                                ObjectLabel.setIcon(apple);
-                                ObjectLabel.setBounds(80,80, 40,40);
-                                mapClass.insertMap(2, 2, true, -5);
+                                escanearMapa();
                                 
                             }
                             else if(casilla == -2){
@@ -412,9 +415,7 @@ public class Personaje{
                                 mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
                                 PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
                                 //Colocamos Objeto en mapa 1
-                                ObjectLabel.setIcon(apple);
-                                ObjectLabel.setBounds(80,80, 40,40);
-                                mapClass.insertMap(2, 2, true, -5);
+                                escanearMapa();
                             }
                             break;
                         case 3:
@@ -430,6 +431,7 @@ public class Personaje{
                                 mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
                                 PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
                                 //Colocamos objeto en mapa 4
+                                escanearMapa();
                                 
                             }
                             else if(casilla == -2){
@@ -444,9 +446,7 @@ public class Personaje{
                                 mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
                                 PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
                                 //Colocamos objeto en mapa 2
-                                ObjectLabel.setIcon(apple);
-                                ObjectLabel.setBounds(80,80, 40,40);
-                                mapClass.insertMap(2, 2, true, -5);
+                                escanearMapa();
                             }
                             break;
                         case 4:
@@ -461,30 +461,29 @@ public class Personaje{
                             mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
                             PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
                             //Colocamos objeto en mapa 3
+                            escanearMapa();
                             break;
-                    }
-            enemyClass.setVida(1000);
-            enemyClass.enemyLabel.setVisible(false);
-            //Quest.NPClabel.setVisible(false);
-            //ObjectLabel.setVisible(false);
-        
+                   }
     }
     
     static void escanearMapa(){
         for( int i = 0; i < 20; i++){
             for( int o = 0; o < 20; o++){
                 switch(mapClass.checkMap(i, o)){
-                    /*case 4:                    
-                        //questClass.setMapClass(mapClass);
-                        questClass.CreateNPC(window, i,o);
-                    break;*/
+                    case 4:                    
+                        System.out.println("Entra");
+                        Quest.NPClabel.setBounds(i * boxSize,o * boxSize, boxSize, boxSize);
+                        Quest.NPClabel.setVisible(true);
+                    break;
                     case -5:
                         ObjectLabel.setIcon(apple);
                         ObjectLabel.setBounds(i * boxSize,o * boxSize, 40,40);
+                        ObjectLabel.setVisible(true);
                     break;
                     case -6:
                         ObjectLabel.setIcon(chicken);
-                        ObjectLabel.setBounds(i * boxSize,(o-1) * boxSize, 40,40);
+                        ObjectLabel.setBounds(i * boxSize,o * boxSize, 40,40);
+                        ObjectLabel.setVisible(true);
                     break;
                 }
             }

@@ -24,6 +24,7 @@ public class Quest {
     }
     
     public void CreateNPC(JFrame window, int x, int y){
+        System.out.println("E.NPC");
         windowMapClass = new Ventana_mapa();
         NPClabel = new JLabel("");
         
