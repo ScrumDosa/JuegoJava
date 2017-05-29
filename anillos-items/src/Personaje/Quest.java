@@ -23,15 +23,14 @@ public class Quest {
         Quest.mapClass = mapClass;
     }
     
-    public void CreateNPC(JFrame window){
- 
+    public void CreateNPC(JFrame window, int x, int y){
         windowMapClass = new Ventana_mapa();
         NPClabel = new JLabel("");
         
         ImageIcon enemy = new ImageIcon( ".//src//Enemigo_Estados_Redimensionados//Frente_Iddle.png");
         
-        NPCx = boxSize * 5;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
-	NPCy = boxSize;
+        NPCx = boxSize * x;						// Declaramos variables para las coordenadas de X e Y que se usar� el Pj.
+	NPCy = boxSize * y;
         
 	mapClass.insertMap(NPCx/boxSize, NPCy/boxSize, true,4);
 

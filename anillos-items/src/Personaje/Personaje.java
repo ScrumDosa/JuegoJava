@@ -21,12 +21,16 @@ public class Personaje{
     static JLabel PJlabel = new JLabel("");					// Creo un JLaber.
     static JLabel BGlabel = new JLabel();
     static JLabel ObjectLabel = new JLabel();
+    static JFrame window;
     static ImageIcon background = new ImageIcon("");
     static int MapActual = 1;
+    static ImageIcon apple = new ImageIcon(".//src//Imagenes//apple.png");
+    static ImageIcon chicken = new ImageIcon(".//src//Imagenes//chicken2.png");
+    static ImageIcon fish = new ImageIcon(".//src//Imagenes//fish.png");
+    static ImageIcon sandia = new ImageIcon(".//src//Imagenes//sandia.png");
     
     static int pjx;
     static int pjy;
-
     
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
     static boolean movLeft = false;							// y las inicializamos como false.
@@ -53,7 +57,7 @@ public class Personaje{
 	mapClass.readFile(".//src//Personaje//map1.txt");
                 
 	windowMapClass.create_window();
-        JFrame window = windowMapClass.get_window();
+        window = windowMapClass.get_window();
 
 	ImageIcon Pj = new ImageIcon( rutaRel+"Frente_Iddle.png");
 		                
@@ -72,11 +76,11 @@ public class Personaje{
         
         //Creamos NPCs
         questClass.setMapClass(mapClass);
-        questClass.CreateNPC(window);
+        questClass.CreateNPC(window, 5, 1);
         //questClass.startQuest(window);
         
         //Colocamos un objeto.
-        ImageIcon apple = new ImageIcon(".//src//Imagenes//apple.png");
+        
         ObjectLabel.setIcon(apple);
         ObjectLabel.setBounds(80,80, 40,40);
         window.add(ObjectLabel);
@@ -227,77 +231,19 @@ public class Personaje{
         double contador = 0;														//Crearemos una variable que nos servir� de contador.
 	int newCoord = CoordCamb + recorrido;										//Calcularemos la coordenada final.
 		
-	if(eje == 'x'){
+	if(eje == 'x')
 		if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) >= 1)
 			return CoordCamb;
-                if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -1){
-                    switch(MapActual){
-                        case 1:
-                        background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
-                        BGlabel.setIcon(background);
-                        mapClass.readFile(".//src//Personaje//map2.txt");
-                        MapActual = 2;
-                        break;
-                        case 2:
-                        background = new ImageIcon(".//src//Imagenes//mapa3.jpg");
-                        BGlabel.setIcon(background);
-                        mapClass.readFile(".//src//Personaje//map3.txt");
-                        MapActual = 3;
-                        break;
-                        case 3:
-                        background = new ImageIcon(".//src//Imagenes//mapa4.jpg");
-                        BGlabel.setIcon(background);
-                        mapClass.readFile(".//src//Personaje//map4.txt");
-                        MapActual = 4;
-                        break;
-                    }
-                    
-                    enemyClass.enemyLabel.setVisible(false);
-                    Quest.NPClabel.setVisible(false);
-                    ObjectLabel.setVisible(false);
-                    
-                    return CoordCamb;
-                }
-                if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -2){
-                    switch(MapActual){
-                        case 2:
-                        background = new ImageIcon(".//src//Imagenes//mapa1.jpg");
-                        BGlabel.setIcon(background);
-                        mapClass.readFile(".//src//Personaje//map1.txt");
-                        MapActual = 1;
-                        break;
-                        case 3:
-                        background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
-                        BGlabel.setIcon(background);
-                        mapClass.readFile(".//src//Personaje//map2.txt");
-                        MapActual = 2;
-                        break;
-                        case 4:
-                        background = new ImageIcon(".//src//Imagenes//mapa3.jpg");
-                        BGlabel.setIcon(background);
-                        mapClass.readFile(".//src//Personaje//map3.txt");
-                        MapActual = 3;
-                        break;
-                    }
-                    
-                    enemyClass.enemyLabel.setVisible(false);
-                    Quest.NPClabel.setVisible(false);
-                    ObjectLabel.setVisible(false);
-                    
-                    return CoordCamb;
-                }
-        }
 	if (eje == 'y')
 		if(mapClass.checkMap(CoordStatic/boxSize, newCoord/boxSize) >= 1)
 			return CoordCamb;
 	if(direccion){														//Si una variable de movimiento es true, haremos:
         	if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -1){
-                    cambiaMapa(MapActual, -1);
-                    System.out.println(pjx);
+                    cambiaMapa(-1);
                     return pjx;
                 }
                 if(mapClass.checkMap(newCoord/boxSize, CoordStatic/boxSize) == -2){
-                    cambiaMapa(MapActual, -2);
+                    cambiaMapa(-2);
                     return pjx;
                 }
                 while(CoordCamb != newCoord){												//2. Siempre que la coordenada actual, sea distinta que la final...
@@ -419,20 +365,22 @@ public class Personaje{
                 nQuest = questClass.comprobarQuest(nQuest);
     }
     
-    public static void cambiaMapa(int MapActual, int casilla){
+    public static void cambiaMapa(int casilla){
         switch(MapActual){
                         case 1:
                             background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
                             BGlabel.setIcon(background);
                             mapClass.readFile(".//src//Personaje//map2.txt");
                             MapActual ++;
-                            
-                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
-                                pjx = 18 * boxSize;
-                                pjy = 1 * boxSize;
-                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
-                                PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
-                                
+                            //cambia posicion personaje
+                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                            pjx = 18 * boxSize;
+                            pjy = 1 * boxSize;
+                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                            PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                            //Colocamos objeto en mapa 2
+                            escanearMapa();
+                           
                             break;
                         case 2:
                             if(casilla == -1){
@@ -440,26 +388,33 @@ public class Personaje{
                                 BGlabel.setIcon(background);
                                 mapClass.readFile(".//src//Personaje//map3.txt");
                                 MapActual ++;
-                                
+                                //cambia posicion personaje
                                 mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
                                 pjx = 18 * boxSize;
                                 pjy = 1 * boxSize;
                                 mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
                                 PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                                //Colocamos objeto en mapa 3
+                                ObjectLabel.setIcon(apple);
+                                ObjectLabel.setBounds(80,80, 40,40);
+                                mapClass.insertMap(2, 2, true, -5);
                                 
                             }
                             else if(casilla == -2){
                                 background = new ImageIcon(".//src//Imagenes//mapa1.jpg");
-                            BGlabel.setIcon(background);
-                            mapClass.readFile(".//src//Personaje//map1.txt");
-                            MapActual --;
-                            
-                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
-                            pjx = 1 * boxSize;
-                            pjy = 11 * boxSize;
-                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
-                            PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
-                            
+                                BGlabel.setIcon(background);
+                                mapClass.readFile(".//src//Personaje//map1.txt");
+                                MapActual --;
+                                //cambia posicion personaje
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                                pjx = 1 * boxSize;
+                                pjy = 11 * boxSize;
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                                PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                                //Colocamos Objeto en mapa 1
+                                ObjectLabel.setIcon(apple);
+                                ObjectLabel.setBounds(80,80, 40,40);
+                                mapClass.insertMap(2, 2, true, -5);
                             }
                             break;
                         case 3:
@@ -468,12 +423,30 @@ public class Personaje{
                                 BGlabel.setIcon(background);
                                 mapClass.readFile(".//src//Personaje//map4.txt");
                                 MapActual ++;
+                                //cambia posicion personaje
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                                pjx = 2 * boxSize;
+                                pjy = 1 * boxSize;
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                                PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                                //Colocamos objeto en mapa 4
+                                
                             }
                             else if(casilla == -2){
                                 background = new ImageIcon(".//src//Imagenes//mapa2.jpg");
-                            BGlabel.setIcon(background);
-                            mapClass.readFile(".//src//Personaje//map2.txt");
-                            MapActual --;
+                                BGlabel.setIcon(background);
+                                mapClass.readFile(".//src//Personaje//map2.txt");
+                                MapActual --;
+                                //cambia posicion personaje
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                                pjx = 4 * boxSize;
+                                pjy = 15 * boxSize;
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                                PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                                //Colocamos objeto en mapa 2
+                                ObjectLabel.setIcon(apple);
+                                ObjectLabel.setBounds(80,80, 40,40);
+                                mapClass.insertMap(2, 2, true, -5);
                             }
                             break;
                         case 4:
@@ -481,15 +454,42 @@ public class Personaje{
                             BGlabel.setIcon(background);
                             mapClass.readFile(".//src//Personaje//map3.txt");
                             MapActual --;
+                            //cambia posicion personaje
+                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                            pjx = 18 * boxSize;
+                            pjy = 4 * boxSize;
+                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                            PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                            //Colocamos objeto en mapa 3
                             break;
                     }
             enemyClass.setVida(1000);
             enemyClass.enemyLabel.setVisible(false);
-            Quest.NPClabel.setVisible(false);
-            ObjectLabel.setVisible(false);
+            //Quest.NPClabel.setVisible(false);
+            //ObjectLabel.setVisible(false);
         
     }
     
+    static void escanearMapa(){
+        for( int i = 0; i < 20; i++){
+            for( int o = 0; o < 20; o++){
+                switch(mapClass.checkMap(i, o)){
+                    /*case 4:                    
+                        //questClass.setMapClass(mapClass);
+                        questClass.CreateNPC(window, i,o);
+                    break;*/
+                    case -5:
+                        ObjectLabel.setIcon(apple);
+                        ObjectLabel.setBounds(i * boxSize,o * boxSize, 40,40);
+                    break;
+                    case -6:
+                        ObjectLabel.setIcon(chicken);
+                        ObjectLabel.setBounds(i * boxSize,(o-1) * boxSize, 40,40);
+                    break;
+                }
+            }
+        }
+    }
     
     
     /*
