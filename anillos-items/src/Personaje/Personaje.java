@@ -23,12 +23,10 @@ public class Personaje{
     static JLabel ObjectLabel = new JLabel();
     static ImageIcon background = new ImageIcon("");
     static int MapActual = 1;
-<<<<<<< HEAD
     
     static int pjx;
     static int pjy;
-=======
->>>>>>> 7d3cbce5cb10cc6593d7da2db475124882931424
+
     
     static boolean movRight = false;						// Creamos una variable booleana para cada tipo de movimiento,
     static boolean movLeft = false;							// y las inicializamos como false.
@@ -442,12 +440,26 @@ public class Personaje{
                                 BGlabel.setIcon(background);
                                 mapClass.readFile(".//src//Personaje//map3.txt");
                                 MapActual ++;
+                                
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                                pjx = 18 * boxSize;
+                                pjy = 1 * boxSize;
+                                mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                                PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                                
                             }
                             else if(casilla == -2){
                                 background = new ImageIcon(".//src//Imagenes//mapa1.jpg");
                             BGlabel.setIcon(background);
                             mapClass.readFile(".//src//Personaje//map1.txt");
                             MapActual --;
+                            
+                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, false, 2);
+                            pjx = 1 * boxSize;
+                            pjy = 11 * boxSize;
+                            mapClass.insertMap(pjx/boxSize, pjy/boxSize, true, 2);
+                            PJlabel.setBounds(pjx, pjy, boxSize, boxSize);
+                            
                             }
                             break;
                         case 3:
