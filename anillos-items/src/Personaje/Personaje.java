@@ -14,6 +14,7 @@ public class Personaje{
     private static Ventana_mapa windowMapClass = new Ventana_mapa();
     private static Enemigo enemyClass = new Enemigo();
     private static Quest questClass = new Quest();
+    private static Quest2 quest2Class = new Quest2();
     
     
     static int boxSize = 40;
@@ -49,7 +50,8 @@ public class Personaje{
 	
     private static int vida = 300;
     public static int daño = 30;
-    static int nQuest = 0;                      // Variable contador de la quest 1.
+    static int nQuest = 0; // Variable contador de la quest 1.
+    static int nQuest2 = 0;
     static boolean talk = false;
     
     public static void createPj() {
@@ -78,6 +80,10 @@ public class Personaje{
         questClass.setMapClass(mapClass);
         questClass.CreateNPC(window, 5, 1);
         //questClass.startQuest(window);
+        
+        //probando NPC2
+        quest2Class.setMapClass(mapClass);
+        quest2Class.CreateNPC(window);
         
         //Colocamos un objeto.
         
@@ -172,6 +178,8 @@ public class Personaje{
 	while(true){										// Durante el resto del programa, ejecutaremos un bucle infinito. 
 		
 		quest(talk, pjx, pjy, window);
+                quest2(talk, pjx, pjy, window); //sigo probando
+                //quest3(talk, pjx, pjy, window); //sigo probando
                 
                 if (tryAttack == true) {
                     if (lookForEnemy(lastDirection, pjx, pjy) == 3) { 
@@ -366,10 +374,39 @@ public class Personaje{
                 nQuest = questClass.comprobarQuest(nQuest);
     }
     
+     public static void quest2(boolean talk, int pjx, int pjy, JFrame window){                //funcion de la quest 1
+                if (talk == true){
+                    System.out.print("Patata");
+                   if ((lookForEnemy(lastDirection, pjx, pjy) == 5 && nQuest2 == 0) /*||(lookForEnemy(lastDirection, pjx, pjy) == 5 && nQuest2 == 1)*/) {
+                        quest2Class.mostrarDialogo(window, talk, nQuest2);
+                        if (nQuest2 == 0)
+                            nQuest2++;
+                    }
+                }
+                if((lookForEnemy(lastDirection, pjx, pjy) != 5)){
+                        talk = false;
+                        quest2Class.mostrarDialogo(window, talk, nQuest);
+                    }
+                nQuest2 = quest2Class.comprobarQuest(nQuest2);
+    }
+     public static void quest3(boolean talk, int pjx, int pjy, JFrame window){                //funcion de la quest 1
+                if (talk == true){
+                    System.out.print("Cacatua");
+                   if ((lookForEnemy(lastDirection, pjx, pjy) == 5 && nQuest == 0) /*||(lookForEnemy(lastDirection, pjx, pjy) == 5 && nQuest2 == 1)*/) {
+                        quest2Class.mostrarDialogo(window, talk, nQuest2);
+                        if (nQuest2 == 0)
+                            nQuest2++;
+                    }
+                }
+                talk = false;
+                nQuest2 = quest2Class.comprobarQuest(nQuest2);
+    }
+    
     public static void cambiaMapa(int casilla){
         enemyClass.setVida(1000);
         enemyClass.enemyLabel.setVisible(false);
         Quest.NPClabel.setVisible(false);
+        Quest2.NPClabel.setVisible(false);
         ObjectLabel.setVisible(false);
         switch(MapActual){
                         case 1:
