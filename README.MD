@@ -31,6 +31,13 @@
 :white_large_square: Mapas.
 
 ## :three: Sprint
+:white_check_mark: Añadir y recoger objetos
+:white_check_mark: Añadir NPC y misiones
+:white_check_mark: Final del juego
+:white_check_mark: Video y menu
+:white_check_mark: Carga y guardado
+:white_check_mark: Mapas aleatorios
+
 
 ## PERSONAJES
  > Protagonista
